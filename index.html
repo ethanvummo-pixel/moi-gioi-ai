@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MÔI GIỚI AI — Bộ Công Cụ AI Chốt Deal cho Môi giới BĐS</title>
+  <meta name="description" content="Bộ công cụ AI giúp môi giới BĐS cá nhân ra tin đăng, kịch bản chốt & content TikTok trong 5 phút. Bản địa hóa theo phân khúc. Hoàn tiền trong 24h.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MÔI GIỚI AI — Trợ lý AI riêng cho dân môi giới BĐS">
+  <meta property="og:description" content="Tiết kiệm 10+ giờ/tuần, lên đơn đều mùa sàng lọc. Copy → dán → có ngay tin đăng, kịch bản chốt, content TikTok.">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0f172a/10b981?text=MOI+GIOI+AI">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Be Vietnam Pro (Vietnamese-optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0f172a',
+            secondary: '#1e293b',
+            accent: '#10b981',
+            accentDark: '#059669'
+          },
+          fontFamily: {
+            heading: ['"Be Vietnam Pro"', 'sans-serif'],
+            body: ['"Be Vietnam Pro"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: '"Be Vietnam Pro"', sans-serif; scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
+    .gradient-text { background: linear-gradient(90deg,#10b981,#34d399); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .gradient-hero { background: radial-gradient(ellipse at top, #1e293b 0%, #0f172a 60%); }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-body antialiased">
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="fixed top-0 w-full bg-primary/95 backdrop-blur shadow-lg z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center h-16">
+        <span class="text-xl font-extrabold text-white">MÔI GIỚI <span class="gradient-text">AI</span></span>
+        <div class="hidden md:flex space-x-8 text-sm text-slate-300">
+          <a href="#problem" class="hover:text-accent transition">Vấn đề</a>
+          <a href="#offer" class="hover:text-accent transition">Bộ công cụ</a>
+          <a href="#pricing" class="hover:text-accent transition">Bảng giá</a>
+          <a href="#faq" class="hover:text-accent transition">Hỏi đáp</a>
+        </div>
+        <a href="#pricing" class="bg-accent text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-accentDark transition shadow">
+          Nhận ngay 497K
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="gradient-hero pt-28 pb-20 px-4 sm:px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="inline-block bg-accent/15 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+        Dành cho môi giới BĐS đang vật lộn giữa mùa sàng lọc 2026
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
+        Mỗi sáng có ngay tin đăng, kịch bản chốt &amp; content TikTok — <span class="gradient-text">chỉ trong 5 phút</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+        Bộ công cụ AI thực chiến giúp môi giới BĐS cá nhân tiết kiệm <strong class="text-white">10+ giờ mỗi tuần</strong> và lên đơn đều đặn — bản địa hóa theo đúng phân khúc của bạn: căn hộ, đất nền, hay cho thuê.
+      </p>
+      <a href="#pricing" class="inline-block bg-accent text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">
+        NHẬN BỘ CÔNG CỤ — 497K
+      </a>
+      <p class="text-slate-400 text-sm mt-3">👉 Nhận tức thì sau thanh toán · Không hợp, hoàn tiền trong 24h</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400 mt-5">
+        <span>🔒 Thanh toán VietQR</span>
+        <span>⚡ Nhận tức thì</span>
+        <span>✓ Hoàn tiền trong 24h</span>
+      </div>
+      <!-- Authority trigger (thật) thay cho proof số chưa có -->
+      <p class="text-slate-500 text-sm mt-4 italic">Tạo bởi người 6 năm marketing agency + in-house BĐS — hiểu cả content lẫn nghề môi giới</p>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section id="problem" class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-4">Bạn biết cảm giác này…</h2>
+      <p class="text-slate-600 text-center mb-10 max-w-2xl mx-auto">
+        8 giờ tối, vẫn ngồi sửa đi sửa lại cái tin đăng. Đăng lên thì chìm nghỉm giữa hàng trăm tin giống hệt. Khách inbox hỏi một câu — bạn loay hoay 20 phút mới nghĩ ra cách trả lời cho "mượt".
+      </p>
+      <div class="grid sm:grid-cols-3 gap-5 mb-10">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <div class="text-3xl mb-3">🕐</div>
+          <p class="text-slate-700"><strong>Viết content ngốn hàng giờ</strong> — tin đăng, caption, kịch bản… mà chữ vẫn khô, không ai bấm.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <div class="text-3xl mb-3">😶</div>
+          <p class="text-slate-700"><strong>Bí ý tưởng</strong> — không biết đăng gì lên TikTok/Facebook để khách nhớ đến mình.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <div class="text-3xl mb-3">💸</div>
+          <p class="text-slate-700"><strong>Nhìn đồng nghiệp chốt deal đều</strong> trong khi mình gọi mãi không ai nghe máy.</p>
+        </div>
+      </div>
+      <div class="bg-primary text-slate-200 p-6 rounded-xl text-center">
+        <p class="mb-2"><strong class="text-white">Phần tệ nhất?</strong> Thị trường 2026 đang sàng lọc khốc liệt — người ở lại không phải người giỏi nhất, mà là người <strong class="text-accent">làm nhanh hơn, chạm khách nhiều hơn</strong>.</p>
+        <p class="text-slate-400 text-sm">Nếu không thay đổi cách làm, 6 tháng nữa bạn vẫn ở đúng chỗ này — trong khi môi giới biết dùng AI đang chốt gấp 3 lượng deal với một nửa thời gian.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION ============ -->
+  <section class="py-16 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-accent font-semibold mb-2">Nếu có cách biến ChatGPT — thứ bạn đã có sẵn miễn phí — thành "trợ lý content &amp; sale" riêng cho dân BĐS thì sao?</p>
+      <h2 class="text-2xl sm:text-4xl font-extrabold mb-6">Giới thiệu: <span class="gradient-text">MÔI GIỚI AI</span></h2>
+      <p class="text-slate-600 mb-10 max-w-2xl mx-auto">
+        Bộ công cụ AI <strong>đầu tiên thiết kế riêng cho môi giới BĐS cá nhân tại Việt Nam</strong> — bởi người đã từng làm trong ngành, không phải dân công nghệ ngồi phòng lạnh. Bản địa hóa theo từng phân khúc, cập nhật liên tục theo AI &amp; luật mới. Chỉ cần <strong>copy → dán → điền thông tin → có ngay</strong>.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6 text-left">
+        <div class="border border-red-100 bg-red-50 p-6 rounded-xl">
+          <h3 class="font-bold text-red-700 mb-3">❌ KHÔNG dành cho</h3>
+          <ul class="space-y-2 text-slate-700 text-sm">
+            <li>• Người tìm "nút bấm ra tiền" mà không chịu làm</li>
+            <li>• Người nghĩ AI sẽ tự chốt deal thay mình</li>
+          </ul>
+        </div>
+        <div class="border border-emerald-100 bg-emerald-50 p-6 rounded-xl">
+          <h3 class="font-bold text-emerald-700 mb-3">✓ DÀNH CHO</h3>
+          <ul class="space-y-2 text-slate-700 text-sm">
+            <li>• Môi giới cá nhân muốn tiết kiệm thời gian, làm chuyên nghiệp hơn</li>
+            <li>• Người mới vào nghề chưa biết viết content &amp; tư vấn</li>
+            <li>• Môi giới "mù công nghệ" muốn bắt kịp làn sóng AI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MECHANISM (3 STEPS) ============ -->
+  <section class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12">Chỉ 3 bước — làm được ngay trong bữa cà phê sáng</h2>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+          <h3 class="font-semibold text-lg mb-2">CHỌN</h3>
+          <p class="text-slate-600 text-sm">Mở bộ prompt đúng phân khúc của bạn (vd: căn hộ).</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+          <h3 class="font-semibold text-lg mb-2">DÁN &amp; ĐIỀN</h3>
+          <p class="text-slate-600 text-sm">Copy prompt vào ChatGPT, điền thông tin căn nhà.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+          <h3 class="font-semibold text-lg mb-2">NHẬN</h3>
+          <p class="text-slate-600 text-sm">Có ngay tin đăng chuẩn SEO / kịch bản chốt / content TikTok — chỉnh nhẹ là đăng.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS ============ -->
+  <section class="py-16 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Sau 1 tuần dùng MÔI GIỚI AI, bạn sẽ:</h2>
+      <ul class="space-y-4">
+        <li class="flex items-start gap-3"><span class="text-accent text-xl">✓</span><span><strong>Ra tin đăng &amp; content trong 5 phút</strong> thay vì 1–2 giờ — để dành thời gian đi gặp khách, chốt deal.</span></li>
+        <li class="flex items-start gap-3"><span class="text-accent text-xl">✓</span><span><strong>Có kịch bản tư vấn &amp; xử lý từ chối sẵn sàng</strong> — không còn ấp úng khi khách hỏi khó.</span></li>
+        <li class="flex items-start gap-3"><span class="text-accent text-xl">✓</span><span><strong>Đăng TikTok/Facebook đều đặn</strong> mà không bí ý tưởng — xây thương hiệu cá nhân, khách tự tìm đến.</span></li>
+        <li class="flex items-start gap-3"><span class="text-accent text-xl">✓</span><span><strong>Dùng được ngay cả khi mù công nghệ</strong> — có mini-class cầm tay chỉ việc.</span></li>
+        <li class="flex items-start gap-3"><span class="text-accent text-xl">✓</span><span><strong>Luôn cập nhật</strong> theo AI &amp; luật BĐS mới — không lo lỗi thời.</span></li>
+      </ul>
+      <div class="bg-emerald-50 border border-emerald-100 p-6 rounded-xl mt-8 text-center text-slate-700 italic">
+        Hình dung 1 tháng nữa: mỗi sáng pha cà phê, 10 phút sau đã có đủ content cả ngày cho 3 sản phẩm. Thời gian còn lại? Dành để gặp khách và chốt hợp đồng.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIAL PROOF (PLACEHOLDER — điền review THẬT) ============ -->
+  <section class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Môi giới đang dùng nói gì</h2>
+      <p class="text-center text-slate-500 text-sm mb-10">⚠️ Khu vực điền review THẬT — tặng bộ Cơ bản cho 20–30 môi giới đổi lấy feedback + ảnh.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
+          <p class="text-slate-700 mb-4">"[Kết quả cụ thể — vd: Tiết kiệm 8 tiếng/tuần, đăng tin đều hơn hẳn]"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
+            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực · Phân khúc]</p></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
+          <p class="text-slate-700 mb-4">"[Câu chuyện — vd: Ban đầu nghĩ AI khó lắm, ai ngờ dán phát ra liền]"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
+            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực]</p></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
+          <p class="text-slate-700 mb-4">"[So sánh — vd: Xài prompt free hoài ra văn cứng đơ, bộ này khác hẳn]"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
+            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực]</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER STACK ============ -->
+  <section id="offer" class="py-16 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-10">Tất cả những gì bạn nhận hôm nay</h2>
+      <div class="space-y-4">
+        <div class="flex justify-between items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+          <div><p class="font-bold">📦 Kho Prompt Chốt Deal (150+ prompt)</p><p class="text-sm text-slate-600">Bản địa hóa 3 phân khúc · 6 nhóm việc: tin đăng, mô tả, kịch bản chốt, xử lý từ chối, content TikTok/FB, tin nhắn Zalo/email.</p></div>
+          <span class="whitespace-nowrap text-slate-400 line-through text-sm">990.000đ</span>
+        </div>
+        <div class="flex justify-between items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+          <div><p class="font-bold">🎁 BONUS #1: 50 Mẫu Tin Đăng &amp; Caption</p><p class="text-sm text-slate-600">Điền chỗ trống là đăng, tiết kiệm 20+ giờ tự viết.</p></div>
+          <span class="whitespace-nowrap text-slate-400 line-through text-sm">300.000đ</span>
+        </div>
+        <div class="flex justify-between items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+          <div><p class="font-bold">🎁 BONUS #2: Mini-class ChatGPT cho người không rành công nghệ</p><p class="text-sm text-slate-600">Video 45 phút cầm tay chỉ việc từ A–Z.</p></div>
+          <span class="whitespace-nowrap text-slate-400 line-through text-sm">490.000đ</span>
+        </div>
+        <div class="flex justify-between items-start gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+          <div><p class="font-bold">🎁 BONUS #3: Cộng đồng "Môi giới AI" + Q&amp;A</p><p class="text-sm text-slate-600">Group kín cập nhật prompt mới, hỏi đáp mỗi tuần.</p></div>
+          <span class="whitespace-nowrap text-slate-400 line-through text-sm">500.000đ</span>
+        </div>
+        <div class="flex justify-between items-start gap-4 p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+          <div><p class="font-bold">🎁 BONUS #4: Prompt Tạo Video Nhà bằng AI + Review 1-1 <span class="text-accent text-xs font-bold">(30 người đầu / 48h)</span></p><p class="text-sm text-slate-600">Kịch bản video giới thiệu nhà + 1 buổi review content riêng.</p></div>
+          <span class="whitespace-nowrap text-slate-400 line-through text-sm">700.000đ</span>
+        </div>
+      </div>
+      <div class="bg-primary text-white p-8 rounded-2xl mt-8 text-center">
+        <p class="text-slate-300">Tổng giá trị: <span class="line-through">2.980.000đ</span></p>
+        <p class="text-4xl font-extrabold my-2">Giá hôm nay: <span class="gradient-text">497.000đ</span></p>
+        <p class="text-accent font-semibold">Bạn tiết kiệm 2.483.000đ (83% OFF)</p>
+        <a href="#pricing" class="inline-block bg-accent text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-accentDark transition mt-5 shadow-lg shadow-accent/30">
+          NHẬN BỘ CÔNG CỤ — 497K
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING (3 TIER) ============ -->
+  <section id="pricing" class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Chọn gói phù hợp với bạn</h2>
+      <p class="text-center text-slate-500 mb-12">Đa số môi giới chọn gói ĐẦY ĐỦ — đủ dùng cho cả 3 phân khúc.</p>
+      <div class="grid md:grid-cols-3 gap-8 items-start">
+        <!-- CƠ BẢN -->
+        <div class="bg-white border-2 border-slate-200 rounded-2xl p-8">
+          <h3 class="text-xl font-bold mb-1">CƠ BẢN</h3>
+          <p class="text-3xl font-extrabold mb-6">297.000đ</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex gap-2"><span class="text-accent">✓</span> Prompt 1 phân khúc</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cập nhật 30 ngày</li>
+            <li class="flex gap-2 text-slate-400"><span>✗</span> Không kèm bonus</li>
+          </ul>
+          <a href="#payment" onclick="selectPlan('basic')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
+        </div>
+        <!-- ĐẦY ĐỦ (POPULAR) -->
+        <div class="bg-white border-2 border-accent rounded-2xl p-8 relative shadow-2xl md:scale-105">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold">PHỔ BIẾN NHẤT</span>
+          <h3 class="text-xl font-bold mb-1">ĐẦY ĐỦ</h3>
+          <p class="text-3xl font-extrabold mb-1">497.000đ <span class="text-base text-slate-400 line-through font-normal">797K</span></p>
+          <p class="text-xs text-accent font-semibold mb-5">Giá early bird — 30 suất đầu</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cả 3 phân khúc (150+ prompt)</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Trọn 4 bonus</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cộng đồng + Q&amp;A (3 tháng)</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cập nhật 6 tháng</li>
+          </ul>
+          <a href="#payment" onclick="selectPlan('full')" class="block text-center bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">Nhận ngay 497K</a>
+        </div>
+        <!-- VIP -->
+        <div class="bg-white border-2 border-slate-200 rounded-2xl p-8">
+          <h3 class="text-xl font-bold mb-1">VIP</h3>
+          <p class="text-3xl font-extrabold mb-6">1.997.000đ</p>
+          <ul class="space-y-3 text-sm mb-8">
+            <li class="flex gap-2"><span class="text-accent">✓</span> Tất cả gói ĐẦY ĐỦ</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cập nhật <strong>trọn đời</strong></li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Coaching nhóm 1 buổi/tháng (3 tháng)</li>
+            <li class="flex gap-2"><span class="text-accent">✓</span> Cộng đồng trọn đời</li>
+          </ul>
+          <a href="#payment" onclick="selectPlan('vip')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
+        </div>
+      </div>
+      <p class="text-center text-sm text-slate-500 mt-6">💳 Thanh toán: một lần, hoặc 2 kỳ × 269K qua MoMo/VietQR.</p>
+    </div>
+  </section>
+
+  <!-- ============ GUARANTEE ============ -->
+  <section class="py-16 px-4 sm:px-6 bg-white">
+    <div class="max-w-2xl mx-auto text-center bg-emerald-50 border border-emerald-200 rounded-2xl p-10">
+      <div class="text-5xl mb-4">🛡️</div>
+      <h2 class="text-2xl font-bold mb-4">Dùng thử không rủi ro — hoàn tiền trong 24h</h2>
+      <p class="text-slate-700 mb-3">Tải về, dùng thử bộ prompt với chính sản phẩm bạn đang bán. Nếu trong 24 giờ bạn thấy <strong>không tiết kiệm thời gian hay không dùng được</strong> — nhắn một tin, hoàn lại 100%, và bạn <strong>giữ luôn toàn bộ tài liệu</strong>.</p>
+      <p class="text-slate-500 text-sm italic">Em gánh hết rủi ro vì biết: chỉ cần bạn dán thử 1 prompt, bạn sẽ không muốn quay lại cách làm cũ.</p>
+    </div>
+  </section>
+
+  <!-- ============ PAYMENT (SePay VietQR) ============ -->
+  <section id="payment" class="py-16 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-3">Hoàn tất đơn hàng</h2>
+      <p class="text-slate-600 mb-8">Quét mã QR bằng app ngân hàng để thanh toán tức thì</p>
+      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-100 max-w-md mx-auto text-left">
+        <!-- BƯỚC 1: FORM THÔNG TIN -->
+        <form id="order-form" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Gói bạn chọn</label>
+            <select id="plan-select" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+              <option value="basic">CƠ BẢN — 297.000đ</option>
+              <option value="full" selected>ĐẦY ĐỦ — 497.000đ</option>
+              <option value="vip">VIP — 1.997.000đ</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Họ và tên <span class="text-red-500">*</span></label>
+            <input id="cust-name" type="text" required placeholder="Nguyễn Văn A" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Số điện thoại / Zalo <span class="text-red-500">*</span></label>
+            <input id="cust-phone" type="tel" required placeholder="09xx xxx xxx" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Email nhận bộ công cụ <span class="text-red-500">*</span></label>
+            <input id="cust-email" type="email" required placeholder="email@gmail.com" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <p id="form-error" class="text-sm text-red-500 hidden"></p>
+          <button type="submit" class="w-full bg-accent text-white px-6 py-3.5 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">
+            Tạo mã QR thanh toán →
+          </button>
+          <p class="text-xs text-slate-400 text-center">Thông tin chỉ dùng để giao bộ công cụ &amp; xác nhận đơn của bạn.</p>
+        </form>
+
+        <!-- BƯỚC 2: MÃ QR (ẩn cho tới khi điền form) -->
+        <div id="qr-result" class="hidden text-center">
+          <button type="button" onclick="backToForm()" class="text-sm text-slate-500 hover:text-accent mb-3">← Sửa thông tin</button>
+          <p class="text-sm text-slate-500 mb-1">Quét QR để thanh toán gói</p>
+          <p id="pay-plan" class="text-lg font-bold text-primary mb-4">ĐẦY ĐỦ</p>
+          <img id="pay-qr" src="" alt="VietQR Thanh toán MÔI GIỚI AI"
+               class="w-64 h-64 mx-auto rounded-lg" onerror="this.style.opacity=0.25;this.alt='[QR sẽ hiện sau khi điền tài khoản SePay vào phần CẤU HÌNH]'">
+          <div class="mt-5 text-left text-sm bg-slate-50 rounded-lg p-4 space-y-1.5">
+            <p><span class="text-slate-500">Ngân hàng:</span> <strong id="pay-bank">[Tên ngân hàng]</strong></p>
+            <p><span class="text-slate-500">Số tài khoản:</span> <strong id="pay-acc">[Số TK]</strong></p>
+            <p><span class="text-slate-500">Chủ tài khoản:</span> <strong id="pay-holder">[Tên chủ TK]</strong></p>
+            <p><span class="text-slate-500">Số tiền:</span> <strong id="pay-amount" class="text-accent">497.000đ</strong></p>
+            <p><span class="text-slate-500">Nội dung CK:</span> <strong id="pay-content" class="font-mono">MGAIFULL</strong></p>
+          </div>
+          <p class="text-xs text-amber-700 bg-amber-50 rounded-lg p-2 mt-3">⚠️ Vui lòng <strong>giữ nguyên Nội dung CK</strong> để hệ thống tự khớp đơn của bạn.</p>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mt-4">⚡ Đơn được xác nhận tự động trong 30 giây sau khi chuyển khoản (webhook SePay → Telegram).</p>
+      <p class="text-xs text-slate-400 mt-2">Bộ công cụ gửi về email bạn nhập ngay sau khi xác nhận. Cần hỗ trợ? Nhắn Zalo/Telegram: [số liên hệ của bạn]</p>
+    </div>
+  </section>
+
+  <!-- ============ PAYMENT JS (QR động theo gói) ============ -->
+  <script>
+    // ════════ CẤU HÌNH THANH TOÁN SePay — CHỈ SỬA 3 DÒNG DƯỚI ĐÂY ════════
+    const SEPAY = {
+      bank:    'YOUR_BANK',      // Tên ngân hàng đúng chuẩn, vd: 'Vietcombank' (xem https://qr.sepay.vn/banks.json)
+      account: 'YOUR_ACCOUNT',   // Số tài khoản, vd: '0123456789'
+      holder:  'NGUYEN VAN A'    // Tên chủ tài khoản (IN HOA, KHÔNG DẤU)
+    };
+    // ═════════════════════════════════════════════════════════════════════
+
+    const PLANS = {
+      basic: { name: 'CƠ BẢN', amount: 297000,  code: 'MGAIBASIC' },
+      full:  { name: 'ĐẦY ĐỦ', amount: 497000,  code: 'MGAIFULL'  },
+      vip:   { name: 'VIP',    amount: 1997000, code: 'MGAIVIP'   }
+    };
+
+    function fmtVND(n){ return n.toLocaleString('vi-VN') + 'đ'; }
+
+    // Nút bảng giá: chỉ chọn gói + đưa về form (CHƯA hiện QR)
+    function selectPlan(key){
+      if (PLANS[key]) document.getElementById('plan-select').value = key;
+      backToForm();
+    }
+    function backToForm(){
+      document.getElementById('qr-result').classList.add('hidden');
+      document.getElementById('order-form').classList.remove('hidden');
+    }
+
+    // Điền form xong mới sinh QR
+    document.getElementById('order-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name  = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const email = document.getElementById('cust-email').value.trim();
+      const err   = document.getElementById('form-error');
+      const phoneDigits = phone.replace(/\D/g, '');
+
+      if (!name || !phone || !email){
+        err.textContent = 'Vui lòng điền đầy đủ họ tên, SĐT và email.';
+        err.classList.remove('hidden'); return;
+      }
+      if (phoneDigits.length < 9){
+        err.textContent = 'Số điện thoại chưa hợp lệ.';
+        err.classList.remove('hidden'); return;
+      }
+      err.classList.add('hidden');
+
+      const key  = document.getElementById('plan-select').value;
+      const p    = PLANS[key] || PLANS.full;
+      const content = p.code + phoneDigits.slice(-4); // vd MGAIFULL1234 — khớp đơn theo khách
+
+      const qr = 'https://qr.sepay.vn/img?acc=' + encodeURIComponent(SEPAY.account)
+               + '&bank=' + encodeURIComponent(SEPAY.bank)
+               + '&amount=' + p.amount
+               + '&des=' + encodeURIComponent(content)
+               + '&template=compact';
+
+      document.getElementById('pay-qr').src        = qr;
+      document.getElementById('pay-plan').textContent    = p.name;
+      document.getElementById('pay-amount').textContent  = fmtVND(p.amount);
+      document.getElementById('pay-content').textContent = content;
+      document.getElementById('pay-bank').textContent    = SEPAY.bank;
+      document.getElementById('pay-acc').textContent     = SEPAY.account;
+      document.getElementById('pay-holder').textContent  = SEPAY.holder;
+
+      // (Tùy chọn) Gửi lead {name, phone, email, key} về Google Form/backend tại đây trước khi hiện QR
+
+      document.getElementById('order-form').classList.add('hidden');
+      const result = document.getElementById('qr-result');
+      result.classList.remove('hidden');
+      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-16 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-12">Câu hỏi thường gặp</h2>
+      <div class="space-y-4">
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Tôi không rành công nghệ, dùng được không?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Được. Có Bonus #2 — mini-class cầm tay từ tạo tài khoản ChatGPT đến dán prompt. Nếu biết copy-paste tin nhắn Zalo, bạn dùng được bộ này.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Tôi đã xài ChatGPT free rồi, mua làm gì?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">ChatGPT là cái máy, prompt là "cách ra lệnh". Bộ này là 150+ câu lệnh đã test sẵn theo nghiệp vụ BĐS — bạn khỏi mò mẫm, khỏi ra văn khô cứng.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Khác gì prompt miễn phí trên mạng?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Prompt free viết cho "mọi ngành" → chung chung, sai ngữ cảnh BĐS. Bộ này bản địa hóa theo từng phân khúc + cập nhật liên tục + có cộng đồng hỗ trợ.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Mất bao lâu để thấy kết quả?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Ngay hôm nay. Dán prompt đầu tiên là có tin đăng trong 5 phút. Không phải khóa học dài lê thê.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">497K có đắt không?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Hoa hồng 1 căn = vài chục triệu. Nếu bộ này giúp bạn chốt thêm dù chỉ 1 deal/quý — nó tự trả gấp hàng chục lần. Chưa kể hoàn tiền trong 24h.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Đây có phải dạy lấy chứng chỉ hành nghề không?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Không. Đây là công cụ &amp; kỹ năng giúp bạn làm việc nhanh hơn, không liên quan thi chứng chỉ.</div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+          <button class="faq-toggle w-full text-left p-5 font-semibold flex justify-between items-center hover:bg-slate-100 transition">Bộ này dành cho tôi không?<span class="faq-icon text-2xl text-accent">+</span></button>
+          <div class="faq-content hidden px-5 pb-5 text-slate-600">Nếu bạn là môi giới cá nhân muốn tiết kiệm thời gian và lên đơn đều hơn — đúng rồi. Có bảo hành hoàn tiền 24h, bạn không rủi ro gì. Cách duy nhất để biết là thử.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="py-20 px-4 sm:px-6 gradient-hero text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-6">Bạn đang đứng trước 2 lựa chọn</h2>
+      <div class="grid sm:grid-cols-2 gap-5 text-left mb-8">
+        <div class="bg-secondary/60 p-6 rounded-xl border border-slate-700">
+          <p class="text-slate-400 text-sm">Đóng trang này, tiếp tục thức khuya viết tin đăng, nhìn đồng nghiệp chốt deal. 6 tháng nữa vẫn loay hoay y hệt.</p>
+        </div>
+        <div class="bg-accent/10 p-6 rounded-xl border border-accent/40">
+          <p class="text-slate-200 text-sm">Lấy bộ MÔI GIỚI AI hôm nay. Sáng mai ra content trong 5 phút, dành thời gian cho việc ra tiền — gặp khách &amp; chốt hợp đồng.</p>
+        </div>
+      </div>
+      <p class="text-accent font-semibold mb-2">⚠️ Early bird 497K chỉ cho 30 người đầu — sau đó về 797K. Bonus review 1-1 hết sau 48h.</p>
+      <a href="#pricing" class="inline-block bg-accent text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30 mt-4">
+        NHẬN BỘ CÔNG CỤ — 497K
+      </a>
+      <p class="text-slate-300 text-sm mt-4">✓ Hơn 150 prompt · ⚡ Nhận tức thì · 🛡️ Hoàn tiền trong 24h, giữ luôn tài liệu</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400 mt-4">
+        <span>🔒 Thanh toán VietQR an toàn</span>
+        <span>💳 MoMo / Chuyển khoản</span>
+      </div>
+      <p class="text-slate-400 text-sm mt-8 max-w-xl mx-auto"><strong class="text-white">P.S.</strong> Câu hỏi không phải "AI có thay thế môi giới không" — mà là "môi giới biết dùng AI có thay thế bạn không". Đứng về phía đúng ngay hôm nay.</p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-primary text-slate-400 py-10 px-4 sm:px-6 text-center text-sm">
+    <p class="text-white font-bold text-lg mb-2">MÔI GIỚI <span class="gradient-text">AI</span></p>
+    <p class="mb-4">Bộ công cụ AI thực chiến cho môi giới BĐS Việt Nam</p>
+    <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 mb-4">
+      <span>🔒 Thanh toán an toàn</span><span>·</span><span>💳 VietQR / MoMo</span><span>·</span><span>✓ Hoàn tiền trong 24h</span>
+    </div>
+    <p class="text-xs text-slate-500">Liên hệ: [email/Zalo của bạn] · Chính sách hoàn tiền: hoàn 100% trong 24h, giữ lại tài liệu.</p>
+    <p class="text-xs text-slate-600 mt-4">© 2026 MÔI GIỚI AI. All rights reserved.</p>
+  </footer>
+
+  <!-- ============ STICKY MOBILE CTA ============ -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-3 z-50 flex items-center justify-between gap-3 shadow-2xl">
+    <div><p class="text-xs text-slate-500">Early bird</p><p class="font-bold text-primary">497.000đ</p></div>
+    <a href="#pricing" class="flex-1 text-center bg-accent text-white px-4 py-3 rounded-lg font-bold hover:bg-accentDark transition">Nhận ngay</a>
+  </div>
+
+  <!-- ============ FAQ ACCORDION JS ============ -->
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector('.faq-icon');
+        content.classList.toggle('hidden');
+        icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+      });
+    });
+  </script>
+</body>
+</html>
