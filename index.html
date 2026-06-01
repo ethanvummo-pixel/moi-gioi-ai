@@ -432,7 +432,7 @@
                + '&bank=' + encodeURIComponent(SEPAY.bank)
                + '&amount=' + p.amount
                + '&des=' + encodeURIComponent(content)
-               + '&template=compact';
+               + '&template=qronly';
 
       document.getElementById('pay-qr').src        = qr;
       document.getElementById('pay-plan').textContent    = p.name;
