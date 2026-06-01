@@ -370,6 +370,8 @@
             <p><span class="text-slate-500">Nội dung CK:</span> <strong id="pay-content" class="font-mono">MGAIFULL</strong></p>
           </div>
           <p class="text-xs text-amber-700 bg-amber-50 rounded-lg p-2 mt-3">⚠️ Vui lòng <strong>giữ nguyên Nội dung CK</strong> để hệ thống tự khớp đơn của bạn.</p>
+          <a id="delivery-link" href="bo-cong-cu.html" class="block mt-4 text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">✅ Tôi đã chuyển khoản — Nhận bộ công cụ</a>
+          <p class="text-xs text-slate-400 mt-2">Đơn của bạn tự động báo về cho shop. Nếu thiếu/sai, shop sẽ liên hệ qua SĐT bạn nhập.</p>
         </div>
       </div>
       <p class="text-xs text-slate-500 mt-4">⚡ Đơn được xác nhận tự động trong 30 giây sau khi chuyển khoản (webhook SePay → Telegram).</p>
@@ -443,6 +445,7 @@
       document.getElementById('pay-bank').textContent    = SEPAY.bank;
       document.getElementById('pay-acc').textContent     = SEPAY.account;
       document.getElementById('pay-holder').textContent  = SEPAY.holder;
+      document.getElementById('delivery-link').href      = 'bo-cong-cu.html?goi=' + key;
 
       // (Tùy chọn) Gửi lead {name, phone, email, key} về Google Form/backend tại đây trước khi hiện QR
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhận bộ công cụ — MÔI GIỚI AI</title>
+  <meta name="robots" content="noindex">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary: '#0f172a', accent: '#10b981', accentDark: '#059669' },
+      fontFamily: { heading: ['"Be Vietnam Pro"','sans-serif'], body: ['"Be Vietnam Pro"','sans-serif'] }
+    }}}
+  </script>
+  <style>body{font-family:'"Be Vietnam Pro"',sans-serif}.gt{background:linear-gradient(90deg,#10b981,#34d399);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- ============================================================
+       ⚠️ THAY CÁC LINK PLACEHOLDER BÊN DƯỚI BẰNG LINK THẬT:
+         - {{DRIVE_LINK}}      : link Google Drive/Notion chứa bộ prompt + template
+         - {{COMMUNITY_LINK}}  : link nhóm Zalo/Telegram cộng đồng "Môi giới AI"
+         - {{MINICLASS_LINK}}  : link video mini-class ChatGPT
+       (Tìm chữ {{ }} và thay là xong)
+  ============================================================ -->
+
+  <section class="max-w-2xl mx-auto px-4 py-12">
+    <div class="text-center mb-8">
+      <div class="text-5xl mb-3">🎉</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2">Cảm ơn anh/chị đã mua <span class="gt">MÔI GIỚI AI</span>!</h1>
+      <p class="text-slate-600">Gói của bạn: <strong id="plan-label" class="text-primary">ĐẦY ĐỦ</strong>. Bấm các nút bên dưới để nhận toàn bộ tài liệu.</p>
+    </div>
+
+    <!-- Truy cập bộ công cụ -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-5">
+      <h2 class="font-bold text-lg mb-1">📦 1. Kho Prompt Chốt Deal + Template</h2>
+      <p class="text-slate-600 text-sm mb-4">150+ prompt theo 3 phân khúc + 50 mẫu tin đăng. Mở link, lưu về Drive của bạn để dùng mọi lúc.</p>
+      <a href="{{DRIVE_LINK}}" target="_blank" rel="noopener" class="block text-center bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accentDark transition">Mở bộ công cụ →</a>
+    </div>
+
+    <!-- Mini-class -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-5">
+      <h2 class="font-bold text-lg mb-1">🎬 2. Mini-class "ChatGPT cho người không rành công nghệ"</h2>
+      <p class="text-slate-600 text-sm mb-4">Video 45 phút cầm tay chỉ việc — xem trước khi dùng prompt để hiệu quả nhất.</p>
+      <a href="{{MINICLASS_LINK}}" target="_blank" rel="noopener" class="block text-center bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-900 transition">Xem mini-class →</a>
+    </div>
+
+    <!-- Cộng đồng -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-5">
+      <h2 class="font-bold text-lg mb-1">👥 3. Cộng đồng "Môi giới AI" + Q&amp;A</h2>
+      <p class="text-slate-600 text-sm mb-4">Vào nhóm kín để nhận prompt cập nhật hàng tháng &amp; hỏi đáp. Đây cũng là nơi nhận Bonus #4 (prompt video AI + review 1-1).</p>
+      <a href="{{COMMUNITY_LINK}}" target="_blank" rel="noopener" class="block text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Tham gia cộng đồng →</a>
+    </div>
+
+    <!-- Quyền lợi theo gói -->
+    <div id="vip-box" class="hidden bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-5">
+      <h2 class="font-bold text-lg mb-1">👑 Quyền lợi VIP của bạn</h2>
+      <p class="text-slate-700 text-sm">Bạn được <strong>coaching nhóm 1 buổi/tháng (3 tháng)</strong> + cập nhật trọn đời. Em sẽ nhắn lịch coaching qua Zalo. Cứ vào cộng đồng và nhắn "VIP" để được thêm vào nhóm coaching nhé.</p>
+    </div>
+
+    <!-- Hỗ trợ -->
+    <div class="text-center text-sm text-slate-500 mt-8">
+      <p class="mb-1">Chưa vào được link nào? Nhắn em hỗ trợ ngay:</p>
+      <p class="font-semibold text-slate-700">Zalo: 0984 359 719</p>
+      <p class="mt-4"><a href="/" class="text-accent hover:underline">← Về trang chủ</a></p>
+    </div>
+  </section>
+
+  <script>
+    // Hiển thị tên gói + quyền lợi theo ?goi=
+    const PLAN = { basic: 'CƠ BẢN', full: 'ĐẦY ĐỦ', vip: 'VIP' };
+    const goi = new URLSearchParams(location.search).get('goi');
+    if (goi && PLAN[goi]) document.getElementById('plan-label').textContent = PLAN[goi];
+    if (goi === 'vip') document.getElementById('vip-box').classList.remove('hidden');
+  </script>
+</body>
+</html>
