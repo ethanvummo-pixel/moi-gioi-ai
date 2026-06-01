@@ -7,7 +7,8 @@
 //   TELEGRAM_CHAT_ID    : chat id của anh (hoặc group) để nhận thông báo
 //   SEPAY_API_KEY       : (tùy chọn) API key trùng với cấu hình webhook trên SePay để xác thực
 
-const PLAN_NAMES = { MGAIBASIC: 'CƠ BẢN', MGAIFULL: 'ĐẦY ĐỦ', MGAIVIP: 'VIP' };
+const PLAN_NAMES  = { MGAIBASIC: 'CƠ BẢN', MGAIFULL: 'ĐẦY ĐỦ', MGAIVIP: 'VIP' };
+const PLAN_PRICES = { MGAIBASIC: 297000, MGAIFULL: 497000, MGAIVIP: 1997000 };
 
 module.exports = async (req, res) => {
   // GET: dùng để kiểm tra endpoint còn sống
@@ -40,19 +41,28 @@ module.exports = async (req, res) => {
 
     // Tách gói + 4 số cuối SĐT từ nội dung CK (vd: MGAIFULL9719)
     const m = content.toUpperCase().match(/MGAI(BASIC|FULL|VIP)(\d{4})?/);
-    const planName  = m ? PLAN_NAMES['MGAI' + m[1]] : '(không rõ gói)';
+    const planKey   = m ? 'MGAI' + m[1] : null;
+    const planName  = planKey ? PLAN_NAMES[planKey] : '(không rõ gói)';
     const phoneTail = (m && m[2]) ? m[2] : '----';
+    const expected  = planKey ? PLAN_PRICES[planKey] : null;
+
+    // So số tiền nhận với giá đúng của gói → cảnh báo lệch tiền
+    let status;
+    if (expected == null)         status = 'ℹ️ Không rõ gói — kiểm tra nội dung CK trước khi giao.';
+    else if (amount === expected) status = '✅ *Số tiền KHỚP gói — có thể giao ngay!*';
+    else if (amount < expected)   status = '⚠️ *THIẾU ' + (expected - amount).toLocaleString('vi-VN') + 'đ* (cần ' + expected.toLocaleString('vi-VN') + 'đ) — kiểm tra trước khi giao!';
+    else                          status = '⚠️ *DƯ ' + (amount - expected).toLocaleString('vi-VN') + 'đ* (gói cần ' + expected.toLocaleString('vi-VN') + 'đ).';
 
     const msg =
       '🛒 *ĐƠN HÀNG MỚI — MÔI GIỚI AI*\n\n' +
-      '📦 Gói: *' + planName + '*\n' +
+      '📦 Gói: *' + planName + '*' + (expected ? ' (cần ' + expected.toLocaleString('vi-VN') + 'đ)' : '') + '\n' +
       '💰 Số tiền: `' + amount.toLocaleString('vi-VN') + ' đ`\n' +
       '🔖 Nội dung CK: `' + content + '`\n' +
       '📞 SĐT (4 số cuối): ' + phoneTail + '\n' +
       '🏦 Ngân hàng: ' + bank + '\n' +
       '🧾 Mã GD: `' + ref + '`\n' +
       '⏰ ' + when + '\n\n' +
-      '✅ *Đã nhận tiền* — nhớ gửi bộ công cụ cho khách!';
+      status;
 
     const token  = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
