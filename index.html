@@ -360,8 +360,8 @@
           <button type="button" onclick="backToForm()" class="text-sm text-slate-500 hover:text-accent mb-3">← Sửa thông tin</button>
           <p class="text-sm text-slate-500 mb-1">Quét QR để thanh toán gói</p>
           <p id="pay-plan" class="text-lg font-bold text-primary mb-4">ĐẦY ĐỦ</p>
-          <img id="pay-qr" src="" alt="VietQR Thanh toán MÔI GIỚI AI"
-               class="w-64 h-64 mx-auto rounded-lg" onerror="this.style.opacity=0.25;this.alt='[QR sẽ hiện sau khi điền tài khoản SePay vào phần CẤU HÌNH]'">
+          <img id="pay-qr" alt="VietQR Thanh toán MÔI GIỚI AI"
+               class="w-64 h-64 mx-auto rounded-lg">
           <div class="mt-5 text-left text-sm bg-slate-50 rounded-lg p-4 space-y-1.5">
             <p><span class="text-slate-500">Ngân hàng:</span> <strong id="pay-bank">[Tên ngân hàng]</strong></p>
             <p><span class="text-slate-500">Số tài khoản:</span> <strong id="pay-acc">[Số TK]</strong></p>
@@ -434,7 +434,9 @@
                + '&des=' + encodeURIComponent(content)
                + '&template=qronly';
 
-      document.getElementById('pay-qr').src        = qr;
+      const qrImg = document.getElementById('pay-qr');
+      qrImg.style.opacity = '1';
+      qrImg.src = qr;
       document.getElementById('pay-plan').textContent    = p.name;
       document.getElementById('pay-amount').textContent  = fmtVND(p.amount);
       document.getElementById('pay-content').textContent = content;
