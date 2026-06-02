@@ -277,7 +277,7 @@
             <li class="flex gap-2"><span class="text-accent">✓</span> Cập nhật 30 ngày</li>
             <li class="flex gap-2 text-slate-400"><span>✗</span> Không kèm bonus</li>
           </ul>
-          <a href="#payment" onclick="selectPlan('basic')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
+          <a href="javascript:void(0)" onclick="openCheckout('basic')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
         </div>
         <!-- ĐẦY ĐỦ (POPULAR) -->
         <div class="bg-white border-2 border-accent rounded-2xl p-8 relative shadow-2xl md:scale-105">
@@ -291,7 +291,7 @@
             <li class="flex gap-2"><span class="text-accent">✓</span> Cộng đồng + Q&amp;A (3 tháng)</li>
             <li class="flex gap-2"><span class="text-accent">✓</span> Cập nhật 6 tháng</li>
           </ul>
-          <a href="#payment" onclick="selectPlan('full')" class="block text-center bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">Nhận ngay 497K</a>
+          <a href="javascript:void(0)" onclick="openCheckout('full')" class="block text-center bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">Nhận ngay 497K</a>
         </div>
         <!-- VIP -->
         <div class="bg-white border-2 border-slate-200 rounded-2xl p-8">
@@ -303,7 +303,7 @@
             <li class="flex gap-2"><span class="text-accent">✓</span> Coaching nhóm 1 buổi/tháng (3 tháng)</li>
             <li class="flex gap-2"><span class="text-accent">✓</span> Cộng đồng trọn đời</li>
           </ul>
-          <a href="#payment" onclick="selectPlan('vip')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
+          <a href="javascript:void(0)" onclick="openCheckout('vip')" class="block text-center bg-slate-200 text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-300 transition">Chọn gói này</a>
         </div>
       </div>
       <p class="text-center text-sm text-slate-500 mt-6">💳 Thanh toán: một lần, hoặc 2 kỳ × 269K qua MoMo/VietQR.</p>
@@ -320,140 +320,191 @@
     </div>
   </section>
 
-  <!-- ============ PAYMENT (SePay VietQR) ============ -->
-  <section id="payment" class="py-16 px-4 sm:px-6 bg-slate-50">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold mb-3">Hoàn tất đơn hàng</h2>
-      <p class="text-slate-600 mb-8">Quét mã QR bằng app ngân hàng để thanh toán tức thì</p>
-      <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-100 max-w-md mx-auto text-left">
-        <!-- BƯỚC 1: FORM THÔNG TIN -->
-        <form id="order-form" class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Gói bạn chọn</label>
-            <select id="plan-select" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
-              <option value="basic">CƠ BẢN — 297.000đ</option>
-              <option value="full" selected>ĐẦY ĐỦ — 497.000đ</option>
-              <option value="vip">VIP — 1.997.000đ</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Họ và tên <span class="text-red-500">*</span></label>
-            <input id="cust-name" type="text" required placeholder="Nguyễn Văn A" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Số điện thoại / Zalo <span class="text-red-500">*</span></label>
-            <input id="cust-phone" type="tel" required placeholder="09xx xxx xxx" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Email nhận bộ công cụ <span class="text-red-500">*</span></label>
-            <input id="cust-email" type="email" required placeholder="email@gmail.com" class="w-full border border-slate-300 rounded-lg px-3 py-2.5 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
-          </div>
-          <p id="form-error" class="text-sm text-red-500 hidden"></p>
-          <button type="submit" class="w-full bg-accent text-white px-6 py-3.5 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">
-            Tạo mã QR thanh toán →
-          </button>
-          <p class="text-xs text-slate-400 text-center">Thông tin chỉ dùng để giao bộ công cụ &amp; xác nhận đơn của bạn.</p>
-        </form>
+  <!-- ============ CHECKOUT MODAL (2 bước + tự xác nhận thanh toán) ============ -->
+  <div id="checkout-modal" class="hidden fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-secondary text-slate-200 w-full max-w-md rounded-2xl shadow-2xl border border-slate-700 relative my-4">
+      <button onclick="closeCheckout()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl z-10">✕</button>
 
-        <!-- BƯỚC 2: MÃ QR (ẩn cho tới khi điền form) -->
-        <div id="qr-result" class="hidden text-center">
-          <button type="button" onclick="backToForm()" class="text-sm text-slate-500 hover:text-accent mb-3">← Sửa thông tin</button>
-          <p class="text-sm text-slate-500 mb-1">Quét QR để thanh toán gói</p>
-          <p id="pay-plan" class="text-lg font-bold text-primary mb-4">ĐẦY ĐỦ</p>
-          <img id="pay-qr" alt="VietQR Thanh toán MÔI GIỚI AI"
-               class="w-64 h-64 mx-auto rounded-lg">
-          <div class="mt-5 text-left text-sm bg-slate-50 rounded-lg p-4 space-y-1.5">
-            <p><span class="text-slate-500">Ngân hàng:</span> <strong id="pay-bank">[Tên ngân hàng]</strong></p>
-            <p><span class="text-slate-500">Số tài khoản:</span> <strong id="pay-acc">[Số TK]</strong></p>
-            <p><span class="text-slate-500">Chủ tài khoản:</span> <strong id="pay-holder">[Tên chủ TK]</strong></p>
-            <p><span class="text-slate-500">Số tiền:</span> <strong id="pay-amount" class="text-accent">497.000đ</strong></p>
-            <p><span class="text-slate-500">Nội dung CK:</span> <strong id="pay-content" class="font-mono">MGAIFULL</strong></p>
+      <!-- Step indicator -->
+      <div class="flex items-center gap-3 px-6 pt-6 text-sm">
+        <span id="ind1" class="flex items-center gap-1.5 font-semibold text-accent"><span class="w-5 h-5 rounded-full bg-accent text-white flex items-center justify-center text-xs">1</span> Thông tin</span>
+        <span class="flex-1 h-px bg-slate-700"></span>
+        <span id="ind2" class="flex items-center gap-1.5 font-semibold text-slate-500"><span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-xs">2</span> Thanh toán</span>
+      </div>
+
+      <!-- STEP 1: Thông tin -->
+      <div id="step-1" class="p-6">
+        <h3 class="text-xl font-bold text-white mb-1">🚀 Đăng ký nhận bộ công cụ</h3>
+        <p class="text-slate-400 text-sm mb-5">Điền thông tin để nhận xác nhận qua Email &amp; Zalo</p>
+        <form id="checkout-form" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">HỌ VÀ TÊN *</label>
+            <input id="c-name" type="text" required placeholder="Nguyễn Văn A" class="w-full bg-primary/60 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
           </div>
-          <p class="text-xs text-amber-700 bg-amber-50 rounded-lg p-2 mt-3">⚠️ Vui lòng <strong>giữ nguyên Nội dung CK</strong> để hệ thống tự khớp đơn của bạn.</p>
-          <a id="delivery-link" href="bo-cong-cu.html" class="block mt-4 text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">✅ Tôi đã chuyển khoản — Nhận bộ công cụ</a>
-          <p class="text-xs text-slate-400 mt-2">Đơn của bạn tự động báo về cho shop. Nếu thiếu/sai, shop sẽ liên hệ qua SĐT bạn nhập.</p>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">EMAIL *</label>
+            <input id="c-email" type="email" required placeholder="email@gmail.com" class="w-full bg-primary/60 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">SỐ ĐIỆN THOẠI / ZALO *</label>
+            <input id="c-phone" type="tel" required placeholder="09xx xxx xxx" class="w-full bg-primary/60 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-2">GÓI ĐĂNG KÝ</label>
+            <div class="space-y-2">
+              <label class="flex items-center justify-between gap-2 border border-slate-600 rounded-lg px-3 py-2.5 cursor-pointer">
+                <span class="flex items-center gap-2"><input type="radio" name="c-plan" value="basic" class="accent-emerald-500"> <span class="text-sm">CƠ BẢN <span class="text-slate-500">· 1 phân khúc</span></span></span>
+                <strong class="text-sm">297.000đ</strong>
+              </label>
+              <label class="flex items-center justify-between gap-2 border border-accent bg-accent/10 rounded-lg px-3 py-2.5 cursor-pointer">
+                <span class="flex items-center gap-2"><input type="radio" name="c-plan" value="full" checked class="accent-emerald-500"> <span class="text-sm">⭐ ĐẦY ĐỦ <span class="text-accent text-xs font-bold">PHỔ BIẾN</span></span></span>
+                <strong class="text-sm">497.000đ</strong>
+              </label>
+              <label class="flex items-center justify-between gap-2 border border-slate-600 rounded-lg px-3 py-2.5 cursor-pointer">
+                <span class="flex items-center gap-2"><input type="radio" name="c-plan" value="vip" class="accent-emerald-500"> <span class="text-sm">👑 VIP <span class="text-slate-500">· +Coaching</span></span></span>
+                <strong class="text-sm">1.997.000đ</strong>
+              </label>
+            </div>
+          </div>
+          <p id="c-error" class="text-sm text-red-400 hidden"></p>
+          <button type="submit" class="w-full bg-accent text-white px-6 py-3.5 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">Tiếp tục → Xem mã thanh toán 🔗</button>
+          <p class="text-xs text-slate-500 text-center">🔒 Thông tin của anh/chị được bảo mật tuyệt đối</p>
+        </form>
+      </div>
+
+      <!-- STEP 2: Thanh toán -->
+      <div id="step-2" class="hidden p-6">
+        <!-- Đang chờ thanh toán -->
+        <div id="pay-pending">
+          <button type="button" onclick="showStep(1); stopPolling();" class="text-sm text-slate-400 hover:text-accent mb-3">← Sửa thông tin</button>
+          <div class="text-center mb-4">
+            <span class="inline-block text-emerald-400 text-xs bg-emerald-500/10 px-3 py-1 rounded-full">✓ Thông tin đã xác nhận</span>
+            <h3 id="s2-plan" class="text-lg font-bold text-white mt-2">ĐẦY ĐỦ — 497.000đ</h3>
+            <p class="text-slate-400 text-sm">Quét mã QR để hoàn tất thanh toán</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 w-fit mx-auto">
+            <img id="c-qr" alt="QR thanh toán" class="w-52 h-52">
+          </div>
+          <div class="bg-primary/50 rounded-xl p-4 mt-4 text-sm space-y-2 border border-slate-700">
+            <div class="flex justify-between"><span class="text-slate-400">Ngân hàng</span><strong>VietinBank</strong></div>
+            <div class="flex justify-between"><span class="text-slate-400">Chủ tài khoản</span><strong>PHAM TRUONG GIANG</strong></div>
+            <div class="flex justify-between items-center gap-2"><span class="text-slate-400">Số tài khoản</span><span><strong id="c-acc">103878529931</strong> <button type="button" onclick="copyText('103878529931', this)" class="text-accent text-xs ml-1">Copy</button></span></div>
+            <div class="flex justify-between"><span class="text-slate-400">Số tiền</span><strong id="c-amount" class="text-accent">497.000đ</strong></div>
+            <div class="flex justify-between items-center gap-2"><span class="text-slate-400">Nội dung CK</span><span><strong id="c-content" class="font-mono">MGAIFULL</strong> <button type="button" onclick="copyText(document.getElementById('c-content').textContent, this)" class="text-accent text-xs ml-1">Copy</button></span></div>
+          </div>
+          <div class="flex items-center justify-center gap-2 mt-4 text-amber-300 text-sm">
+            <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span> Đang chờ thanh toán... tự động xác nhận
+          </div>
+          <p id="c-fallback" class="hidden text-center text-xs text-slate-400 mt-3 bg-primary/50 rounded-lg p-3">Đã chuyển khoản nhưng chưa thấy xác nhận?<br><a id="c-fallback-link" href="bo-cong-cu.html" class="text-accent underline font-semibold">Bấm vào đây để nhận bộ công cụ</a> · hoặc nhắn Zalo 0984 359 719</p>
+        </div>
+
+        <!-- Thanh toán thành công -->
+        <div id="pay-success" class="hidden text-center py-8">
+          <div class="text-6xl mb-3">✅</div>
+          <h3 class="text-2xl font-extrabold text-emerald-400 mb-2">Thanh toán thành công!</h3>
+          <p class="text-slate-300 mb-6">Cảm ơn anh/chị đã mua MÔI GIỚI AI. Bấm để nhận bộ công cụ ngay 👇</p>
+          <a id="c-deliver" href="bo-cong-cu.html" class="block bg-accent text-white px-6 py-4 rounded-xl font-bold text-lg hover:bg-accentDark transition shadow-lg shadow-accent/30">🎁 Nhận bộ công cụ →</a>
         </div>
       </div>
-      <p class="text-xs text-slate-500 mt-4">⚡ Đơn được xác nhận tự động trong 30 giây sau khi chuyển khoản (webhook SePay → Telegram).</p>
-      <p class="text-xs text-slate-400 mt-2">Bộ công cụ gửi về email bạn nhập ngay sau khi xác nhận. Cần hỗ trợ? Nhắn Zalo: 0984 359 719</p>
     </div>
-  </section>
+  </div>
 
-  <!-- ============ PAYMENT JS (QR động theo gói) ============ -->
+  <!-- ============ CHECKOUT JS (modal + QR + tự xác nhận thanh toán) ============ -->
   <script>
-    // ════════ CẤU HÌNH THANH TOÁN SePay — CHỈ SỬA 3 DÒNG DƯỚI ĐÂY ════════
-    const SEPAY = {
-      bank:    'VietinBank',       // Ngân hàng TMCP Công Thương (VietinBank)
-      account: '103878529931',     // Số TK VietinBank
-      holder:  'PHAM TRUONG GIANG' // Tên chủ tài khoản
-    };
-    // ═════════════════════════════════════════════════════════════════════
-
+    // ════════ CẤU HÌNH TÀI KHOẢN NHẬN TIỀN ════════
+    const SEPAY = { bank: 'VietinBank', account: '103878529931', holder: 'PHAM TRUONG GIANG' };
     const PLANS = {
       basic: { name: 'CƠ BẢN', amount: 297000,  code: 'MGAIBASIC' },
       full:  { name: 'ĐẦY ĐỦ', amount: 497000,  code: 'MGAIFULL'  },
       vip:   { name: 'VIP',    amount: 1997000, code: 'MGAIVIP'   }
     };
-
     function fmtVND(n){ return n.toLocaleString('vi-VN') + 'đ'; }
 
-    // Nút bảng giá: chỉ chọn gói + đưa về form (CHƯA hiện QR)
-    function selectPlan(key){
-      if (PLANS[key]) document.getElementById('plan-select').value = key;
-      backToForm();
+    let pollTimer = null;
+
+    function openCheckout(key){
+      const k = PLANS[key] ? key : 'full';
+      const r = document.querySelector('input[name="c-plan"][value="' + k + '"]'); if (r) r.checked = true;
+      document.getElementById('pay-success').classList.add('hidden');
+      document.getElementById('pay-pending').classList.remove('hidden');
+      document.getElementById('c-error').classList.add('hidden');
+      showStep(1);
+      document.getElementById('checkout-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
-    function backToForm(){
-      document.getElementById('qr-result').classList.add('hidden');
-      document.getElementById('order-form').classList.remove('hidden');
+    function closeCheckout(){
+      document.getElementById('checkout-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+      stopPolling();
+    }
+    function showStep(n){
+      document.getElementById('step-1').classList.toggle('hidden', n !== 1);
+      document.getElementById('step-2').classList.toggle('hidden', n !== 2);
+      document.getElementById('ind1').className = 'flex items-center gap-1.5 font-semibold ' + (n >= 1 ? 'text-accent' : 'text-slate-500');
+      document.getElementById('ind2').className = 'flex items-center gap-1.5 font-semibold ' + (n >= 2 ? 'text-accent' : 'text-slate-500');
+    }
+    function stopPolling(){ if (pollTimer){ clearInterval(pollTimer); pollTimer = null; } }
+    function copyText(t, btn){
+      try { navigator.clipboard.writeText(t); } catch(e) {}
+      if (btn){ const o = btn.textContent; btn.textContent = 'Đã copy ✓'; setTimeout(function(){ btn.textContent = o; }, 1200); }
     }
 
-    // Điền form xong mới sinh QR
-    document.getElementById('order-form').addEventListener('submit', function(e){
+    document.getElementById('checkout-modal').addEventListener('click', function(e){
+      if (e.target === this) closeCheckout();
+    });
+
+    document.getElementById('checkout-form').addEventListener('submit', function(e){
       e.preventDefault();
-      const name  = document.getElementById('cust-name').value.trim();
-      const phone = document.getElementById('cust-phone').value.trim();
-      const email = document.getElementById('cust-email').value.trim();
-      const err   = document.getElementById('form-error');
-      const phoneDigits = phone.replace(/\D/g, '');
-
-      if (!name || !phone || !email){
-        err.textContent = 'Vui lòng điền đầy đủ họ tên, SĐT và email.';
-        err.classList.remove('hidden'); return;
-      }
-      if (phoneDigits.length < 9){
-        err.textContent = 'Số điện thoại chưa hợp lệ.';
-        err.classList.remove('hidden'); return;
-      }
+      const name  = document.getElementById('c-name').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      const err   = document.getElementById('c-error');
+      const digits = phone.replace(/\D/g, '');
+      if (!name || !email || !phone){ err.textContent = 'Vui lòng điền đủ họ tên, email và SĐT.'; err.classList.remove('hidden'); return; }
+      if (digits.length < 9){ err.textContent = 'Số điện thoại chưa hợp lệ.'; err.classList.remove('hidden'); return; }
       err.classList.add('hidden');
 
-      const key  = document.getElementById('plan-select').value;
-      const p    = PLANS[key] || PLANS.full;
-      const content = p.code + phoneDigits.slice(-4); // vd MGAIFULL1234 — khớp đơn theo khách
+      const key = (document.querySelector('input[name="c-plan"]:checked') || {}).value || 'full';
+      const p = PLANS[key] || PLANS.full;
+      const content = p.code + digits.slice(-4); // vd MGAIFULL1234
 
       const qr = 'https://qr.sepay.vn/img?acc=' + encodeURIComponent(SEPAY.account)
                + '&bank=' + encodeURIComponent(SEPAY.bank)
                + '&amount=' + p.amount
                + '&des=' + encodeURIComponent(content)
-               + '&template=qronly';
+               + '&template=compact';
+      document.getElementById('c-qr').src = qr;
+      document.getElementById('s2-plan').textContent  = p.name + ' — ' + fmtVND(p.amount);
+      document.getElementById('c-amount').textContent = fmtVND(p.amount);
+      document.getElementById('c-content').textContent = content;
+      document.getElementById('c-acc').textContent = SEPAY.account;
+      document.getElementById('c-deliver').href = 'bo-cong-cu.html?goi=' + key;
+      document.getElementById('c-fallback-link').href = 'bo-cong-cu.html?goi=' + key;
 
-      const qrImg = document.getElementById('pay-qr');
-      qrImg.style.opacity = '1';
-      qrImg.src = qr;
-      document.getElementById('pay-plan').textContent    = p.name;
-      document.getElementById('pay-amount').textContent  = fmtVND(p.amount);
-      document.getElementById('pay-content').textContent = content;
-      document.getElementById('pay-bank').textContent    = SEPAY.bank;
-      document.getElementById('pay-acc').textContent     = SEPAY.account;
-      document.getElementById('pay-holder').textContent  = SEPAY.holder;
-      document.getElementById('delivery-link').href      = 'bo-cong-cu.html?goi=' + key;
-
-      // (Tùy chọn) Gửi lead {name, phone, email, key} về Google Form/backend tại đây trước khi hiện QR
-
-      document.getElementById('order-form').classList.add('hidden');
-      const result = document.getElementById('qr-result');
-      result.classList.remove('hidden');
-      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      showStep(2);
+      startPolling(content, p.amount);
     });
+
+    // Tự hỏi server vài giây/lần xem tiền về chưa → mở khóa giao hàng
+    function startPolling(content, amount){
+      stopPolling();
+      document.getElementById('c-fallback').classList.add('hidden');
+      let elapsed = 0;
+      pollTimer = setInterval(async function(){
+        elapsed += 5;
+        try {
+          const r = await fetch('/api/check-payment?code=' + encodeURIComponent(content) + '&amount=' + amount);
+          const d = await r.json();
+          if (d && d.paid){
+            stopPolling();
+            document.getElementById('pay-pending').classList.add('hidden');
+            document.getElementById('pay-success').classList.remove('hidden');
+            return;
+          }
+        } catch(e) {}
+        if (elapsed >= 120){ document.getElementById('c-fallback').classList.remove('hidden'); }
+      }, 5000);
+    }
   </script>
 
   <!-- ============ FAQ ============ -->
