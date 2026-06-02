@@ -23,11 +23,11 @@ module.exports = async (req, res) => {
     const data = await r.json();
     const txs = (data && data.transactions) || [];
 
-    // Tìm giao dịch tiền vào có nội dung chứa mã đơn + đủ số tiền
+    // Tìm giao dịch tiền vào có nội dung chứa mã đơn (mã đơn đã duy nhất theo từng khách)
     const hit = txs.find(t => {
       const c = String(t.transaction_content || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
       const inAmt = Number(t.amount_in || 0);
-      return c.includes(code) && (amount ? inAmt >= amount : inAmt > 0);
+      return c.includes(code) && inAmt > 0;
     });
 
     if (hit) {
