@@ -466,23 +466,24 @@
 
       const key = (document.querySelector('input[name="c-plan"]:checked') || {}).value || 'full';
       const p = PLANS[key] || PLANS.full;
-      const content = p.code + digits.slice(-4); // vd MGAIFULL1234
+      const orderCode = p.code + digits.slice(-4);   // MGAIFULL9719 — mã đơn để khớp đúng khách
+      const ckContent = 'SEVQR ' + orderCode;        // VietinBank/SePay yêu cầu nội dung phải chứa "SEVQR" mới ghi nhận
 
       const qr = 'https://qr.sepay.vn/img?acc=' + encodeURIComponent(SEPAY.account)
                + '&bank=' + encodeURIComponent(SEPAY.bank)
                + '&amount=' + p.amount
-               + '&des=' + encodeURIComponent(content)
+               + '&des=' + encodeURIComponent(ckContent)
                + '&template=compact';
       document.getElementById('c-qr').src = qr;
       document.getElementById('s2-plan').textContent  = p.name + ' — ' + fmtVND(p.amount);
       document.getElementById('c-amount').textContent = fmtVND(p.amount);
-      document.getElementById('c-content').textContent = content;
+      document.getElementById('c-content').textContent = ckContent;
       document.getElementById('c-acc').textContent = SEPAY.account;
       document.getElementById('c-deliver').href = 'bo-cong-cu.html?goi=' + key;
       document.getElementById('c-fallback-link').href = 'bo-cong-cu.html?goi=' + key;
 
       showStep(2);
-      startPolling(content, p.amount);
+      startPolling(orderCode, p.amount);   // dò theo mã đơn (không gồm SEVQR) cho chắc
     });
 
     // Tự hỏi server vài giây/lần xem tiền về chưa → mở khóa giao hàng
