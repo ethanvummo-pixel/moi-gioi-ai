@@ -78,12 +78,41 @@
       <a href="https://zalo.me/g/hcgehne3dmohbkhlexeo" target="_blank" rel="noopener" class="block text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Tham gia cộng đồng →</a>
     </div>
 
-    <!-- Lời mời nâng cấp (ẩn ở gói pro) -->
-    <div id="upsell-growth" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-5 text-center">
-      <p class="text-slate-700 text-sm">💡 Đã có Máy Viết Content? Nâng lên <strong>Hệ thống Ra Khách</strong> để khách tự tìm đến — chỉ bù 200K. Nhắn Zalo <strong>0889578256</strong> để nâng cấp.</p>
+    <!-- ===== UPSELL Gói 1 → Gói 2 (chỉ hiện cho khách Gói 1) ===== -->
+    <div id="upsell-growth" class="hidden rounded-2xl p-6 mb-5 bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-300 shadow-sm text-center">
+      <span class="inline-block bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">🎁 ƯU ĐÃI RIÊNG CHO KHÁCH ĐÃ MUA</span>
+      <h2 class="text-xl font-extrabold mb-1">Mở khoá <span class="gt">Hệ thống Ra Khách</span></h2>
+      <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">Bạn đã có Máy Viết Content. Nâng lên để khách <strong>tự inbox hỏi mua</strong>: Module thương hiệu cá nhân · Lịch content 30 ngày · Kho Hook + bài trụ cột · Kịch bản video ngắn · Phễu chốt Comment→Inbox→Hẹn xem nhà · 99 kịch bản xử lý từ chối.</p>
+      <div class="bg-white border border-emerald-200 rounded-xl p-4 mb-4 inline-block">
+        <p class="text-sm text-slate-500">Mua lẻ Gói 2 là <span class="line-through">399.000đ</span>. Bạn chỉ cần bù thêm:</p>
+        <p class="text-3xl font-extrabold text-emerald-600 my-1">+149.000đ</p>
+        <p class="text-xs text-emerald-700 font-semibold">Tiết kiệm 51.000đ — chỉ dành cho khách đã mua hôm nay</p>
+      </div>
+      <div>
+        <button onclick="showUpgradeQR()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/30 transition">Nâng cấp ngay +149K →</button>
+      </div>
+      <!-- QR nâng cấp +149K (nội dung CK: SEVQR MGAIUP2) -->
+      <div id="upgrade-qr" class="hidden mt-5 max-w-sm mx-auto text-left bg-white border border-slate-200 rounded-xl p-4">
+        <p class="text-center text-sm font-semibold mb-3">Quét mã hoặc chuyển khoản đúng nội dung 👇</p>
+        <div class="bg-white rounded-lg w-fit mx-auto"><img src="https://qr.sepay.vn/img?acc=103878529931&bank=VietinBank&amount=149000&des=SEVQR%20MGAIUP2&template=compact" alt="QR nâng cấp 149K" class="w-48 h-48"></div>
+        <div class="text-sm space-y-1 mt-3">
+          <div class="flex justify-between"><span class="text-slate-500">Ngân hàng</span><strong>VietinBank</strong></div>
+          <div class="flex justify-between"><span class="text-slate-500">Chủ TK</span><strong>PHAM TRUONG GIANG</strong></div>
+          <div class="flex justify-between"><span class="text-slate-500">Số TK</span><strong>103878529931</strong></div>
+          <div class="flex justify-between"><span class="text-slate-500">Số tiền</span><strong class="text-emerald-600">149.000đ</strong></div>
+          <div class="flex justify-between"><span class="text-slate-500">Nội dung CK</span><strong class="font-mono">SEVQR MGAIUP2</strong></div>
+        </div>
+        <p class="text-xs text-slate-500 mt-3 text-center">Sau khi chuyển, nhắn Zalo <strong>0889578256</strong> (kèm ảnh CK) để mở khoá Gói 2 trong vài phút.</p>
+      </div>
     </div>
-    <div id="upsell-pro" class="hidden bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-5 text-center">
-      <p class="text-slate-700 text-sm">🚀 Muốn một AI làm việc thay bạn 24/7? Lên <strong>Phiên bản AI của bạn</strong> để dựng AI Clone. Nhắn Zalo <strong>0889578256</strong> để nâng cấp.</p>
+
+    <!-- ===== UPSELL Gói 2 → Gói 3 (chỉ hiện cho khách Gói 2; Gói 3 sắp ra mắt) ===== -->
+    <div id="upsell-pro" class="hidden rounded-2xl p-6 mb-5 bg-gradient-to-br from-amber-50 to-white border-2 border-amber-300 shadow-sm text-center">
+      <span class="inline-block bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">🎁 ƯU ĐÃI RIÊNG CHO KHÁCH ĐÃ MUA</span>
+      <h2 class="text-xl font-extrabold mb-1">Lên <span class="text-amber-600">Phiên bản AI của bạn</span> <span class="text-xs align-middle bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">SẮP RA MẮT</span></h2>
+      <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">Dựng <strong>AI Clone</strong> tư vấn &amp; nuôi khách 24/7 + agent đa nhiệm (xử lý phản đối · báo cáo thị trường · so sánh SP + tính vay nhanh) + bộ não Luật KDBĐS 2023.</p>
+      <p class="text-sm text-amber-800 font-semibold mb-4">Khách đã mua Hệ thống Ra Khách được <strong>giữ giá nâng cấp ưu đãi riêng</strong> khi mở bán.</p>
+      <a href="https://zalo.me/0889578256" target="_blank" rel="noopener" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-amber-500/30 transition">Giữ giá nâng cấp — nhắn Zalo →</a>
     </div>
 
     <!-- Hỗ trợ -->
@@ -114,6 +143,12 @@
     // Lời mời nâng cấp tương ứng
     if (rank === 1) document.getElementById('upsell-growth').classList.remove('hidden');
     if (rank === 2) document.getElementById('upsell-pro').classList.remove('hidden');
+
+    // Hiện QR nâng cấp +149K (Gói 1 → Gói 2)
+    function showUpgradeQR(){
+      const el = document.getElementById('upgrade-qr');
+      if (el) el.classList.remove('hidden');
+    }
   </script>
 </body>
 </html>

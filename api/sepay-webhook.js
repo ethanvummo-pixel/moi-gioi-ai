@@ -40,15 +40,28 @@ module.exports = async (req, res) => {
     const bank    = data.bankBrandName || data.gateway || '';
     const when    = data.transactionDate || new Date().toLocaleString('vi-VN');
 
-    // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI399 9719, MGAI1190S9719)
-    // Đặt 1190 trước 199 để khớp đúng gói dài hơn.
-    const m = content.toUpperCase().match(/MGAI(1190|399|199)(S)?(\d{4})?/);
-    const planKey   = m ? 'MGAI' + m[1] : null;
-    const planName  = planKey ? PLAN_NAMES[planKey] : '(không rõ gói)';
-    const hasSetup  = !!(m && m[2]);
-    const phoneTail = (m && m[3]) ? m[3] : '----';
-    const basePrice = planKey ? PLAN_PRICES[planKey] : null;
-    const expected  = basePrice == null ? null : basePrice + (hasSetup ? SETUP_PRICE : 0);
+    // Nâng cấp giữa các gói (vd: MGAIUP2 = Gói 1 → Gói 2, +149k)
+    const UPGRADES = { MGAIUP2: { name: 'NÂNG CẤP → Hệ thống Ra Khách', price: 149000 } };
+    const upKey = (content.toUpperCase().match(/MGAIUP[23]/) || [])[0];
+
+    let planKey, planName, hasSetup, phoneTail, expected;
+    if (upKey && UPGRADES[upKey]) {
+      planKey   = upKey;
+      planName  = UPGRADES[upKey].name;
+      hasSetup  = false;
+      phoneTail = '----';
+      expected  = UPGRADES[upKey].price;
+    } else {
+      // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI399 9719, MGAI1190S9719)
+      // Đặt 1190 trước 199 để khớp đúng gói dài hơn.
+      const m = content.toUpperCase().match(/MGAI(1190|399|199)(S)?(\d{4})?/);
+      planKey   = m ? 'MGAI' + m[1] : null;
+      planName  = planKey ? PLAN_NAMES[planKey] : '(không rõ gói)';
+      hasSetup  = !!(m && m[2]);
+      phoneTail = (m && m[3]) ? m[3] : '----';
+      const basePrice = planKey ? PLAN_PRICES[planKey] : null;
+      expected  = basePrice == null ? null : basePrice + (hasSetup ? SETUP_PRICE : 0);
+    }
 
     // So số tiền nhận với giá đúng của gói (gồm add-on nếu có) → cảnh báo lệch tiền
     let status;
