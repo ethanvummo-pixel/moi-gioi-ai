@@ -43,6 +43,8 @@ module.exports = async (req, res) => {
     // Nâng cấp giữa các gói (vd: MGAIUP2 = Gói 1 → Gói 2, +149k)
     const UPGRADES = { MGAIUP2: { name: 'NÂNG CẤP → Hệ thống Ra Khách', price: 149000 } };
     const upKey = (content.toUpperCase().match(/MGAIUP[23]/) || [])[0];
+    // OTO trang cảm ơn lead magnet: Gói 1 giá đặc biệt 149k (vd: MGAIOTO9719)
+    const otoM = content.toUpperCase().match(/MGAIOTO(\d{4})?/);
 
     let planKey, planName, hasSetup, phoneTail, expected;
     if (upKey && UPGRADES[upKey]) {
@@ -51,6 +53,12 @@ module.exports = async (req, res) => {
       hasSetup  = false;
       phoneTail = '----';
       expected  = UPGRADES[upKey].price;
+    } else if (otoM) {
+      planKey   = 'MGAIOTO';
+      planName  = 'Máy Viết Content BĐS (OTO 149K)';
+      hasSetup  = false;
+      phoneTail = otoM[1] || '----';
+      expected  = 149000;
     } else {
       // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI399 9719, MGAI1190S9719)
       // Đặt 1190 trước 199 để khớp đúng gói dài hơn.

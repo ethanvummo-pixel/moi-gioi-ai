@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FREE: 10 Prompt AI Viết Tin & Content BĐS trong 5 phút</title>
+  <meta name="description" content="Nhận miễn phí bộ 10 prompt AI giúp môi giới BĐS ra tin đăng & content trong 5 phút. Copy là dùng được ngay, không cần biết công nghệ.">
+  <meta name="robots" content="index">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary: '#0f172a', secondary: '#1e293b', accent: '#10b981', accentDark: '#059669' },
+      fontFamily: { heading: ['"Be Vietnam Pro"','sans-serif'], body: ['"Be Vietnam Pro"','sans-serif'] }
+    }}}
+  </script>
+  <style>
+    body{font-family:'"Be Vietnam Pro"',sans-serif}
+    .gt{background:linear-gradient(90deg,#10b981,#34d399);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .gh{background:radial-gradient(ellipse at top,#1e293b 0%,#0f172a 60%)}
+  </style>
+</head>
+<body class="bg-primary text-slate-200">
+
+  <section class="gh min-h-screen flex items-center px-4 py-10">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Pitch -->
+      <div>
+        <span class="inline-block bg-accent/15 text-accent text-sm font-semibold px-4 py-1.5 rounded-full mb-5">🎁 Quà tặng miễn phí cho môi giới BĐS</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-5">
+          Dán 1 câu lệnh — AI viết xong <span class="gt">tin đăng &amp; content BĐS</span> trong 5 phút
+        </h1>
+        <p class="text-slate-300 mb-6">Bộ <strong class="text-white">10 prompt thực chiến</strong> giúp anh/chị hết cảnh ngồi cả tối nghĩ caption. Copy → dán vào ChatGPT → có ngay tin đăng, caption Facebook, kịch bản TikTok. <strong class="text-white">Không cần biết công nghệ.</strong></p>
+        <ul class="space-y-2.5 mb-6">
+          <li class="flex gap-2"><span class="text-accent">✓</span> 4 prompt <strong>tin đăng &amp; mô tả</strong> chuẩn, có cảm xúc</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> 3 prompt <strong>caption Facebook/Zalo</strong> giữ người đọc</li>
+          <li class="flex gap-2"><span class="text-accent">✓</span> 3 prompt <strong>kịch bản TikTok/Reels</strong> 15 giây</li>
+        </ul>
+        <p class="text-slate-400 text-sm">⚡ Nhận ngay sau khi điền · 🔒 Bảo mật thông tin · 💯 Hoàn toàn miễn phí</p>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-secondary border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <h2 class="text-xl font-bold text-white mb-1">Nhận 10 prompt miễn phí 👇</h2>
+        <p class="text-slate-400 text-sm mb-5">Điền tên &amp; số Zalo để em gửi bộ prompt cho anh/chị.</p>
+        <form id="lead-form" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">HỌ VÀ TÊN *</label>
+            <input id="l-name" type="text" required placeholder="Nguyễn Văn A" class="w-full bg-primary/60 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">SỐ ĐIỆN THOẠI / ZALO *</label>
+            <input id="l-phone" type="tel" required placeholder="09xx xxx xxx" class="w-full bg-primary/60 border border-slate-600 rounded-lg px-3 py-2.5 text-white placeholder-slate-500 focus:ring-2 focus:ring-accent focus:border-accent outline-none">
+          </div>
+          <p id="l-error" class="text-sm text-red-400 hidden"></p>
+          <button type="submit" id="l-submit" class="w-full bg-accent text-white px-6 py-3.5 rounded-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">
+            NHẬN 10 PROMPT MIỄN PHÍ →
+          </button>
+          <p class="text-xs text-slate-500 text-center">Em chỉ dùng SĐT để gửi quà &amp; hỗ trợ, không spam.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('lead-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const name  = document.getElementById('l-name').value.trim();
+      const phone = document.getElementById('l-phone').value.trim();
+      const err   = document.getElementById('l-error');
+      const digits = phone.replace(/\D/g, '');
+      if (!name || !phone){ err.textContent = 'Vui lòng điền tên và số điện thoại.'; err.classList.remove('hidden'); return; }
+      if (digits.length < 9){ err.textContent = 'Số điện thoại chưa hợp lệ.'; err.classList.remove('hidden'); return; }
+      err.classList.add('hidden');
+
+      const btn = document.getElementById('l-submit');
+      btn.disabled = true; btn.textContent = 'Đang gửi...';
+
+      // Lưu lead để trang cảm ơn dùng (tên + 4 số cuối cho mã OTO)
+      localStorage.setItem('mgai_lead', JSON.stringify({ name: name, phone: digits, t: Date.now() }));
+
+      // Bắn Telegram báo lead (best-effort — không chặn khách nếu lỗi)
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, phone: phone, source: 'lead-magnet-10prompt' })
+        });
+      } catch (e) {}
+
+      location.href = 'cam-on.html';
+    });
+  </script>
+</body>
+</html>

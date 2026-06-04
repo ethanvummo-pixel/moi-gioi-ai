@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Prompt đã sẵn sàng — Môi Giới AI</title>
+  <meta name="robots" content="noindex">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>">
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary: '#0f172a', secondary: '#1e293b', accent: '#10b981', accentDark: '#059669' },
+      fontFamily: { heading: ['"Be Vietnam Pro"','sans-serif'], body: ['"Be Vietnam Pro"','sans-serif'] }
+    }}}
+  </script>
+  <style>body{font-family:'"Be Vietnam Pro"',sans-serif}.gt{background:linear-gradient(90deg,#10b981,#34d399);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- ⚠️ THAY {{DRIVE_FREE}} BẰNG LINK DRIVE CHỨA 10 PROMPT MIỄN PHÍ -->
+
+  <section class="max-w-2xl mx-auto px-4 py-10">
+
+    <!-- Giao quà free -->
+    <div class="text-center mb-6">
+      <div class="text-5xl mb-3">🎉</div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold mb-2"><span id="greet">Cảm ơn anh/chị</span> — 10 prompt đã sẵn sàng!</h1>
+      <p class="text-slate-600">Bấm bên dưới để lấy bộ prompt và vào nhóm nhận thêm prompt mới mỗi tuần.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-4">
+      <h2 class="font-bold text-lg mb-1">📦 Bộ 10 Prompt AI Viết Tin &amp; Content BĐS</h2>
+      <p class="text-slate-600 text-sm mb-4">Mở link, lưu về Drive của anh/chị để dùng mọi lúc.</p>
+      <a href="{{DRIVE_FREE}}" target="_blank" rel="noopener" class="block text-center bg-accent text-white px-6 py-3 rounded-lg font-bold hover:bg-accentDark transition">Lấy 10 prompt →</a>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mb-8">
+      <h2 class="font-bold text-lg mb-1">👥 Vào nhóm "Môi giới AI"</h2>
+      <p class="text-slate-600 text-sm mb-4">Nơi em chia sẻ prompt mới, demo &amp; hỗ trợ hỏi đáp miễn phí.</p>
+      <a href="https://zalo.me/g/hcgehne3dmohbkhlexeo" target="_blank" rel="noopener" class="block text-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition">Tham gia nhóm Zalo →</a>
+    </div>
+
+    <!-- ============ OTO: ƯU ĐÃI CHỈ HIỆN 1 LẦN ============ -->
+    <div id="oto" class="rounded-2xl border-2 border-emerald-400 bg-gradient-to-br from-emerald-50 to-white shadow-lg overflow-hidden">
+      <div class="bg-emerald-600 text-white text-center py-2 text-sm font-bold tracking-wide">🔥 ƯU ĐÃI CHỈ HIỆN 1 LẦN — TRÊN TRANG NÀY</div>
+
+      <!-- Còn hạn -->
+      <div id="oto-live" class="p-6 text-center">
+        <p class="text-slate-500 text-sm mb-1">Khoan đã — vì anh/chị vừa nhận quà:</p>
+        <h2 class="text-xl sm:text-2xl font-extrabold mb-2">Lấy trọn <span class="gt">Máy Viết Content BĐS</span></h2>
+        <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">10 prompt free mới là phần "viết tin". Bản đầy đủ có <strong>150+ prompt đủ 6 khâu</strong> — gồm cả <strong>kịch bản chốt &amp; xử lý từ chối</strong> + Trợ Lý Content BĐS (Custom GPT).</p>
+
+        <div class="bg-white border border-emerald-200 rounded-xl p-4 mb-4 inline-block">
+          <p class="text-sm text-slate-500">Giá thường <span class="line-through">199.000đ</span> — riêng trang này:</p>
+          <p class="text-4xl font-extrabold text-emerald-600 my-1">149.000đ</p>
+          <p class="text-xs text-emerald-700 font-semibold">Tiết kiệm 50.000đ · ưu đãi hết sau <span id="oto-cd" class="font-mono">15:00</span></p>
+        </div>
+
+        <div>
+          <button onclick="showOtoQR()" id="oto-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-emerald-500/30 transition">Lấy ngay 149K →</button>
+          <p class="mt-3"><a href="index.html#pricing" class="text-slate-400 text-sm hover:underline">Không, cảm ơn — xem các gói khác</a></p>
+        </div>
+
+        <!-- QR thanh toán OTO -->
+        <div id="oto-qr" class="hidden mt-5 max-w-sm mx-auto text-left bg-white border border-slate-200 rounded-xl p-4">
+          <p class="text-center text-sm font-semibold mb-3">Quét mã hoặc CK đúng nội dung 👇 — tự mở khoá sau khi nhận tiền</p>
+          <div class="bg-white rounded-lg w-fit mx-auto"><img id="oto-qr-img" alt="QR 149K" class="w-48 h-48"></div>
+          <div class="text-sm space-y-1 mt-3">
+            <div class="flex justify-between"><span class="text-slate-500">Ngân hàng</span><strong>VietinBank</strong></div>
+            <div class="flex justify-between"><span class="text-slate-500">Chủ TK</span><strong>PHAM TRUONG GIANG</strong></div>
+            <div class="flex justify-between items-center gap-2"><span class="text-slate-500">Số TK</span><span><strong>103878529931</strong> <button type="button" onclick="copyText('103878529931',this)" class="text-accent text-xs">Copy</button></span></div>
+            <div class="flex justify-between"><span class="text-slate-500">Số tiền</span><strong class="text-emerald-600">149.000đ</strong></div>
+            <div class="flex justify-between items-center gap-2"><span class="text-slate-500">Nội dung CK</span><span><strong id="oto-ck" class="font-mono">SEVQR MGAIOTO</strong> <button type="button" onclick="copyText(document.getElementById('oto-ck').textContent,this)" class="text-accent text-xs">Copy</button></span></div>
+          </div>
+          <div class="flex items-center justify-center gap-2 mt-3 text-amber-600 text-sm">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> Đang chờ thanh toán... tự động xác nhận
+          </div>
+          <p id="oto-fallback" class="hidden text-center text-xs text-slate-500 mt-3">Đã CK chưa thấy xác nhận? <a href="bo-cong-cu.html?goi=starter" class="text-accent underline">Bấm vào đây nhận bộ công cụ</a> · hoặc nhắn Zalo 0889578256</p>
+        </div>
+      </div>
+
+      <!-- Hết hạn -->
+      <div id="oto-expired" class="hidden p-6 text-center">
+        <p class="text-slate-600 mb-3">⏰ Ưu đãi 149K trên trang này đã kết thúc.</p>
+        <p class="text-slate-500 text-sm mb-4">Anh/chị vẫn có thể lấy Máy Viết Content BĐS với giá thường 199.000đ.</p>
+        <a href="index.html#pricing" class="inline-block bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-700 transition">Xem các gói →</a>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-slate-400 mt-6">Cần hỗ trợ? Nhắn Zalo 0889578256</p>
+  </section>
+
+  <script>
+    const SEPAY = { bank: 'VietinBank', account: '103878529931' };
+    const OTO = { amount: 149000, code: 'MGAIOTO', minutes: 15 };
+
+    // Lấy thông tin lead (tên + 4 số cuối SĐT cho mã đơn)
+    let lead = {};
+    try { lead = JSON.parse(localStorage.getItem('mgai_lead') || '{}'); } catch (e) {}
+    const last4 = (lead.phone || '').replace(/\D/g,'').slice(-4);
+    if (lead.name) document.getElementById('greet').textContent = 'Cảm ơn ' + lead.name;
+
+    // ===== Đếm ngược OTO (lưu localStorage → không reset khi F5) =====
+    const KEY = 'mgai_oto_deadline_v1';
+    let deadline = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!deadline) { deadline = Date.now() + OTO.minutes * 60 * 1000; localStorage.setItem(KEY, String(deadline)); }
+
+    function pad(n){ return String(n).padStart(2,'0'); }
+    let cdTimer = setInterval(tick, 1000); tick();
+    function tick(){
+      const ms = deadline - Date.now();
+      if (ms <= 0){
+        clearInterval(cdTimer);
+        document.getElementById('oto-live').classList.add('hidden');
+        document.getElementById('oto-expired').classList.remove('hidden');
+        return;
+      }
+      document.getElementById('oto-cd').textContent = pad(Math.floor(ms/60000)) + ':' + pad(Math.floor(ms%60000/1000));
+    }
+
+    function copyText(t, btn){
+      try { navigator.clipboard.writeText(t); } catch(e) {}
+      if (btn){ const o = btn.textContent; btn.textContent = 'Đã copy ✓'; setTimeout(()=>btn.textContent=o, 1200); }
+    }
+
+    let pollTimer = null;
+    function showOtoQR(){
+      const orderCode = OTO.code + (last4 || '');          // MGAIOTO + 4 số cuối
+      const ck = 'SEVQR ' + orderCode;
+      const qr = 'https://qr.sepay.vn/img?acc=' + encodeURIComponent(SEPAY.account)
+               + '&bank=' + encodeURIComponent(SEPAY.bank)
+               + '&amount=' + OTO.amount
+               + '&des=' + encodeURIComponent(ck)
+               + '&template=compact';
+      document.getElementById('oto-qr-img').src = qr;
+      document.getElementById('oto-ck').textContent = ck;
+      document.getElementById('oto-qr').classList.remove('hidden');
+      document.getElementById('oto-btn').textContent = 'Quét mã QR bên dưới 👇';
+      startPolling(orderCode, OTO.amount);
+    }
+
+    function startPolling(code, amount){
+      if (pollTimer) clearInterval(pollTimer);
+      let elapsed = 0;
+      pollTimer = setInterval(async function(){
+        elapsed += 5;
+        try {
+          const r = await fetch('/api/check-payment?code=' + encodeURIComponent(code) + '&amount=' + amount);
+          const d = await r.json();
+          if (d && d.paid){
+            clearInterval(pollTimer);
+            location.href = 'bo-cong-cu.html?goi=starter';
+            return;
+          }
+        } catch (e) {}
+        if (elapsed >= 120) document.getElementById('oto-fallback').classList.remove('hidden');
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
