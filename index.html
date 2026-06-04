@@ -85,6 +85,13 @@
       <a href="#pricing" class="inline-block bg-accent text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-accentDark transition shadow-lg shadow-accent/30">
         XEM 3 GÓI — TỪ 199K
       </a>
+      <div class="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-amber-500/10 border border-amber-500/40 text-amber-200 px-5 py-2.5 rounded-xl text-sm">
+        <span>⏰ Ưu đãi early-bird: <strong class="js-cd font-mono text-white">02:00:00</strong></span>
+        <span class="text-amber-300/50">·</span>
+        <span>hết giờ giá <strong class="text-white">×2</strong></span>
+        <span class="text-amber-300/50">·</span>
+        <span>chỉ còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất</span>
+      </div>
       <p class="text-slate-400 text-sm mt-3">👉 Nhận tức thì sau thanh toán · Không ra nổi 1 tin ưng ý trong 7 ngày → hoàn 100%</p>
       <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400 mt-5">
         <span>🔒 Thanh toán VietQR</span>
@@ -316,7 +323,14 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
   <section id="pricing" class="py-16 px-4 sm:px-6 bg-slate-50">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Chọn cấp độ phù hợp với bạn</h2>
-      <p class="text-center text-slate-500 mb-12">Bắt đầu từ đâu cũng được — nâng cấp bất cứ lúc nào, chỉ bù phần chênh lệch.</p>
+      <p class="text-center text-slate-500 mb-8">Bắt đầu từ đâu cũng được — nâng cấp bất cứ lúc nào, chỉ bù phần chênh lệch.</p>
+      <div class="max-w-2xl mx-auto mb-10 bg-amber-50 border border-amber-200 rounded-2xl p-5 text-center">
+        <p class="text-amber-800 font-semibold text-lg">⏰ Giá ưu đãi early-bird còn lại: <span class="js-cd font-mono text-amber-900">02:00:00</span></p>
+        <p class="text-sm text-amber-700 mt-1">Hết giờ, giá quay về mức gốc (×2). Chỉ còn <strong><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất giá ưu đãi.</p>
+        <div class="mt-3 h-2.5 w-full bg-amber-100 rounded-full overflow-hidden">
+          <div class="js-slots-bar h-full bg-amber-500 rounded-full transition-all" style="width:10%"></div>
+        </div>
+      </div>
       <div class="grid md:grid-cols-3 gap-8 items-stretch">
 
         <!-- GÓI 1 — MÁY VIẾT CONTENT -->
@@ -771,9 +785,34 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
 
   <!-- ============ STICKY MOBILE CTA ============ -->
   <div class="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-3 z-50 flex items-center justify-between gap-3 shadow-2xl">
-    <div><p class="text-xs text-slate-500">Phổ biến nhất</p><p class="font-bold text-primary">399.000đ</p></div>
+    <div><p class="text-xs text-slate-500">Ưu đãi còn <span class="js-cd font-mono text-amber-600">02:00:00</span></p><p class="font-bold text-primary">399.000đ</p></div>
     <a href="#pricing" class="flex-1 text-center bg-accent text-white px-4 py-3 rounded-lg font-bold hover:bg-accentDark transition">Xem 3 gói</a>
   </div>
+
+  <!-- ============ EARLY-BIRD: ĐỒNG HỒ ĐẾM NGƯỢC + SUẤT GIỚI HẠN ============ -->
+  <script>
+    // ⚙️ CHỈNH Ở ĐÂY: số suất còn lại / tổng suất + số giờ ưu đãi cho mỗi khách.
+    const EARLYBIRD = { slotsLeft: 9, slotsTotal: 10, hours: 2 };
+    (function(){
+      // Đếm ngược theo từng khách — lưu localStorage nên KHÔNG reset khi F5/refresh.
+      const KEY = 'mgai_eb_deadline_v1';
+      let deadline = parseInt(localStorage.getItem(KEY) || '0', 10);
+      if (!deadline) { deadline = Date.now() + EARLYBIRD.hours * 3600 * 1000; localStorage.setItem(KEY, String(deadline)); }
+      const cds = document.querySelectorAll('.js-cd');
+      function pad(n){ return String(n).padStart(2, '0'); }
+      function tick(){
+        let ms = deadline - Date.now(); if (ms < 0) ms = 0;
+        const t = pad(Math.floor(ms/3600000)) + ':' + pad(Math.floor(ms%3600000/60000)) + ':' + pad(Math.floor(ms%60000/1000));
+        cds.forEach(e => e.textContent = t);
+      }
+      tick(); setInterval(tick, 1000);
+      // Suất giới hạn
+      document.querySelectorAll('.js-slots-left').forEach(e => e.textContent = EARLYBIRD.slotsLeft);
+      document.querySelectorAll('.js-slots-total').forEach(e => e.textContent = EARLYBIRD.slotsTotal);
+      const soldPct = Math.round((EARLYBIRD.slotsTotal - EARLYBIRD.slotsLeft) / EARLYBIRD.slotsTotal * 100);
+      document.querySelectorAll('.js-slots-bar').forEach(e => e.style.width = Math.max(soldPct, 8) + '%');
+    })();
+  </script>
 
   <!-- ============ FAQ ACCORDION JS ============ -->
   <script>
