@@ -7,8 +7,9 @@
 //   TELEGRAM_CHAT_ID    : chat id của anh (hoặc group) để nhận thông báo
 //   SEPAY_API_KEY       : (tùy chọn) API key trùng với cấu hình webhook trên SePay để xác thực
 
-const PLAN_NAMES  = { MGAIBASIC: 'CƠ BẢN', MGAIFULL: 'ĐẦY ĐỦ', MGAIVIP: 'VIP' };
-const PLAN_PRICES = { MGAIBASIC: 297000, MGAIFULL: 497000, MGAIVIP: 1997000 };
+const PLAN_NAMES  = { MGAI199: 'Máy Viết Content BĐS', MGAI399: 'Hệ thống Ra Khách', MGAI1190: 'Phiên bản AI của bạn' };
+const PLAN_PRICES = { MGAI199: 199000, MGAI399: 399000, MGAI1190: 1190000 };
+const SETUP_PRICE = 1000000; // Add-on "Setup AI Clone cho bạn" — mã có hậu tố S
 
 module.exports = async (req, res) => {
   // GET: dùng để kiểm tra endpoint còn sống
@@ -39,14 +40,17 @@ module.exports = async (req, res) => {
     const bank    = data.bankBrandName || data.gateway || '';
     const when    = data.transactionDate || new Date().toLocaleString('vi-VN');
 
-    // Tách gói + 4 số cuối SĐT từ nội dung CK (vd: MGAIFULL9719)
-    const m = content.toUpperCase().match(/MGAI(BASIC|FULL|VIP)(\d{4})?/);
+    // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI399 9719, MGAI1190S9719)
+    // Đặt 1190 trước 199 để khớp đúng gói dài hơn.
+    const m = content.toUpperCase().match(/MGAI(1190|399|199)(S)?(\d{4})?/);
     const planKey   = m ? 'MGAI' + m[1] : null;
     const planName  = planKey ? PLAN_NAMES[planKey] : '(không rõ gói)';
-    const phoneTail = (m && m[2]) ? m[2] : '----';
-    const expected  = planKey ? PLAN_PRICES[planKey] : null;
+    const hasSetup  = !!(m && m[2]);
+    const phoneTail = (m && m[3]) ? m[3] : '----';
+    const basePrice = planKey ? PLAN_PRICES[planKey] : null;
+    const expected  = basePrice == null ? null : basePrice + (hasSetup ? SETUP_PRICE : 0);
 
-    // So số tiền nhận với giá đúng của gói → cảnh báo lệch tiền
+    // So số tiền nhận với giá đúng của gói (gồm add-on nếu có) → cảnh báo lệch tiền
     let status;
     if (expected == null)         status = 'ℹ️ Không rõ gói — kiểm tra nội dung CK trước khi giao.';
     else if (amount === expected) status = '✅ *Số tiền KHỚP gói — có thể giao ngay!*';
@@ -55,7 +59,7 @@ module.exports = async (req, res) => {
 
     const msg =
       '🛒 *ĐƠN HÀNG MỚI — MÔI GIỚI AI*\n\n' +
-      '📦 Gói: *' + planName + '*' + (expected ? ' (cần ' + expected.toLocaleString('vi-VN') + 'đ)' : '') + '\n' +
+      '📦 Gói: *' + planName + '*' + (hasSetup ? ' *+ Setup AI Clone*' : '') + (expected ? ' (cần ' + expected.toLocaleString('vi-VN') + 'đ)' : '') + '\n' +
       '💰 Số tiền: `' + amount.toLocaleString('vi-VN') + ' đ`\n' +
       '🔖 Nội dung CK: `' + content + '`\n' +
       '📞 SĐT (4 số cuối): ' + phoneTail + '\n' +
