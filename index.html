@@ -228,37 +228,87 @@ Nhắn em số 09xx để giữ lịch xem cuối tuần này nhé, căn đẹp 
     </div>
   </section>
 
-  <!-- ============ SOCIAL PROOF (PLACEHOLDER — điền review THẬT) ============ -->
-  <section class="py-16 px-4 sm:px-6 bg-white">
+  <!-- ============ SHOWCASE SẢN PHẨM + DEMO THẬT ============
+       ⚠️ THẢ ẢNH THẬT VÀO THƯ MỤC assets/ THEO ĐÚNG TÊN FILE BÊN DƯỚI:
+         assets/sp-tong.jpg     : ảnh tổng bộ công cụ / thư mục Drive
+         assets/sp-prompt.jpg   : screenshot kho prompt
+         assets/sp-gpt.jpg      : screenshot Trợ Lý Content BĐS (Custom GPT)
+         assets/sp-lich.jpg     : screenshot lịch content 30 ngày
+         assets/demo-chatgpt.jpg: screenshot dán prompt → ChatGPT trả về tin đăng
+         assets/sp-video.jpg    : screenshot bộ kịch bản video ngắn
+       (Trước khi có ảnh, ô sẽ hiện khung hướng dẫn — không bị vỡ trang.)
+  ============================================================ -->
+  <section id="showcase" class="py-16 px-4 sm:px-6 bg-white">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Môi giới đang dùng nói gì</h2>
-      <p class="text-center text-slate-500 text-sm mb-10">⚠️ Khu vực điền 3–6 review THẬT — tặng Gói 1 cho môi giới đầu tiên đổi lấy feedback + ảnh.</p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-slate-50 p-6 rounded-xl shadow-sm border border-slate-100">
-          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
-          <p class="text-slate-700 mb-4">"[Kết quả cụ thể — vd: Tiết kiệm 8 tiếng/tuần, đăng tin đều hơn hẳn]"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
-            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực · Phân khúc]</p></div>
-          </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-center mb-3">Nhìn tận mắt thứ bạn nhận được</h2>
+      <p class="text-center text-slate-500 mb-10 max-w-2xl mx-auto">Không phải "khóa học hứa hẹn" — đây là bộ tài sản số bạn tải về dùng ngay. Dưới đây là ảnh thật bên trong &amp; demo khi dùng.</p>
+
+      <!-- Gallery ảnh sản phẩm (ảnh thật trong assets/) -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/may-viet-content.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/may-viet-content.png" alt="Tài liệu Máy Viết Content BĐS" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">📦 Máy Viết Content BĐS <span class="text-slate-400 font-normal">· Gói 1</span></figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/prompt.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/prompt.png" alt="Kho prompt viết content BĐS" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">✍️ Kho prompt viết content BĐS</figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/tro-ly-gpt.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/tro-ly-gpt.png" alt="Trợ Lý Content BĐS - Custom GPT" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">🤖 Trợ Lý Content BĐS (Custom GPT)</figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/chatgpt-demo.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/chatgpt-demo.png" alt="Dùng thật trên ChatGPT" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">⚡ Dùng thật trên ChatGPT</figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/content-30-ngay.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/content-30-ngay.png" alt="Lịch content 30 ngày làm sẵn" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">📅 Lịch content 30 ngày <span class="text-slate-400 font-normal">· Gói 2</span></figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+          <a href="assets/kich-ban-video.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/kich-ban-video.png" alt="Bộ kịch bản video ngắn Reels/TikTok" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">🎬 Kịch bản Reels/TikTok <span class="text-slate-400 font-normal">· Gói 2</span></figcaption>
+        </figure>
+        <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none w-full">
+          <a href="assets/video-khong-lo-mat.png" target="_blank" rel="noopener" class="block relative aspect-[4/3] bg-slate-100">
+            <img src="assets/video-khong-lo-mat.png" alt="Phương án video không lộ mặt" loading="lazy" class="absolute inset-0 w-full h-full object-cover object-top">
+          </a>
+          <figcaption class="p-3 text-sm font-semibold text-slate-700">🙈 Phương án video không lộ mặt <span class="text-slate-400 font-normal">· Gói 2</span></figcaption>
+        </figure>
+      </div>
+
+      <!-- Demo thật khi dùng (ví dụ output — không giả danh người dùng) -->
+      <h3 class="text-xl font-bold text-center mb-2">Dùng thực tế trông như thế nào?</h3>
+      <p class="text-center text-slate-500 text-sm mb-8">Ví dụ output thật của bộ công cụ — bạn chỉ điền thông tin căn nhà, AI lo phần chữ.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+          <div class="bg-slate-800 text-slate-300 text-xs font-mono px-4 py-2 flex items-center gap-2"><span class="text-accent">▌</span> Bạn gõ cho AI</div>
+          <p class="p-4 text-sm text-slate-700 whitespace-pre-line">Viết caption TikTok bán căn 2PN 65m2, giá 2.5 tỷ, view thành phố, sổ riêng. Giọng trẻ trung, có hook giữ người xem.</p>
+          <div class="bg-emerald-600 text-white text-xs font-mono px-4 py-2 flex items-center gap-2">✓ AI trả về (3 giây)</div>
+          <p class="p-4 text-sm text-slate-800 whitespace-pre-line">"2.5 tỷ ở Sài Gòn được căn view cả thành phố — bạn tin không? 👀
+65m2 / 2PN / sổ riêng sang tên liền. Tối lên đèn là góc sống ảo có sẵn 🌃
+Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
         </div>
-        <div class="bg-slate-50 p-6 rounded-xl shadow-sm border border-slate-100">
-          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
-          <p class="text-slate-700 mb-4">"[Câu chuyện — vd: Ban đầu nghĩ AI khó lắm, ai ngờ dán phát ra liền]"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
-            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực]</p></div>
-          </div>
-        </div>
-        <div class="bg-slate-50 p-6 rounded-xl shadow-sm border border-slate-100">
-          <p class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</p>
-          <p class="text-slate-700 mb-4">"[So sánh — vd: Xài prompt free hoài ra văn cứng đơ, bộ này khác hẳn]"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-11 h-11 bg-slate-200 rounded-full"></div>
-            <div><p class="font-semibold text-sm">[Tên môi giới]</p><p class="text-xs text-slate-500">[Khu vực]</p></div>
-          </div>
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+          <div class="bg-slate-800 text-slate-300 text-xs font-mono px-4 py-2 flex items-center gap-2"><span class="text-accent">▌</span> Bạn gõ cho AI</div>
+          <p class="p-4 text-sm text-slate-700 whitespace-pre-line">Khách chê "giá cao hơn căn bên cạnh 150tr". Cho mình kịch bản xử lý từ chối, giữ thiện cảm.</p>
+          <div class="bg-emerald-600 text-white text-xs font-mono px-4 py-2 flex items-center gap-2">✓ AI trả về (3 giây)</div>
+          <p class="p-4 text-sm text-slate-800 whitespace-pre-line">"Dạ em hiểu, 150tr không nhỏ. Nhưng anh để ý: căn này hướng đón nắng nên không ẩm mốc, sổ đã riêng nên sang tên trong tuần — căn kia còn chờ tách sổ 2–3 tháng. Anh đang cần vào ở sớm hay đầu tư để lại ạ? Em phân tích kỹ phần hợp với anh nhất."</p>
         </div>
       </div>
+      <p class="text-center text-slate-400 text-xs mt-6 italic">* Ví dụ minh hoạ output của bộ công cụ. Khi có review thật từ khách, mục này sẽ được bổ sung.</p>
     </div>
   </section>
 
