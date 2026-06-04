@@ -789,6 +789,17 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
     <a href="#pricing" class="flex-1 text-center bg-accent text-white px-4 py-3 rounded-lg font-bold hover:bg-accentDark transition">Xem 3 gói</a>
   </div>
 
+  <!-- ============ FLOATING COUNTDOWN (desktop, góc dưới trái) ============ -->
+  <div id="float-cd" class="hidden md:flex fixed bottom-4 left-4 z-50 items-center gap-3 bg-primary text-white rounded-xl shadow-2xl border border-amber-500/40 pl-4 pr-3 py-3">
+    <div>
+      <p class="text-[11px] text-amber-300 font-semibold uppercase tracking-wide">⏰ Ưu đãi kết thúc sau</p>
+      <p class="text-2xl font-extrabold font-mono js-cd leading-none my-0.5">02:00:00</p>
+      <p class="text-[11px] text-slate-300">Còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất · hết giờ giá <strong class="text-white">×2</strong></p>
+    </div>
+    <a href="#pricing" class="bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold px-3 py-2.5 rounded-lg whitespace-nowrap transition">Nhận ngay</a>
+    <button onclick="document.getElementById('float-cd').remove()" class="absolute -top-2 -right-2 bg-slate-700 hover:bg-slate-600 text-slate-200 w-5 h-5 rounded-full text-xs flex items-center justify-center" aria-label="Đóng">✕</button>
+  </div>
+
   <!-- ============ EARLY-BIRD: ĐỒNG HỒ ĐẾM NGƯỢC + SUẤT GIỚI HẠN ============ -->
   <script>
     // ⚙️ CHỈNH Ở ĐÂY: số suất còn lại / tổng suất + số giờ ưu đãi cho mỗi khách.
