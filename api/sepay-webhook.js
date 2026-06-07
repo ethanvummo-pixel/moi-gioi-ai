@@ -71,17 +71,12 @@ module.exports = async (req, res) => {
       expected  = basePrice == null ? null : basePrice + (hasSetup ? SETUP_PRICE : 0);
     }
 
-    // Khách hết giờ early-bird trả giá gốc (×2) cũng hợp lệ với gói thường (không add-on)
-    const allowDouble = !hasSetup && ['MGAI199', 'MGAI399', 'MGAI1190'].includes(planKey);
-    const expectedRegular = (expected != null && allowDouble) ? expected * 2 : null;
-
     // So số tiền nhận với giá đúng của gói (gồm add-on nếu có) → cảnh báo lệch tiền
     let status;
-    if (expected == null)                         status = 'ℹ️ Không rõ gói — kiểm tra nội dung CK trước khi giao.';
-    else if (amount === expected)                 status = '✅ *Số tiền KHỚP gói (giá ưu đãi) — có thể giao ngay!*';
-    else if (amount === expectedRegular)          status = '✅ *Số tiền KHỚP gói (giá gốc, hết early-bird) — có thể giao ngay!*';
-    else if (amount < expected)                   status = '⚠️ *THIẾU ' + (expected - amount).toLocaleString('vi-VN') + 'đ* (cần ' + expected.toLocaleString('vi-VN') + 'đ) — kiểm tra trước khi giao!';
-    else                                          status = '⚠️ *DƯ ' + (amount - expected).toLocaleString('vi-VN') + 'đ* (gói ưu đãi cần ' + expected.toLocaleString('vi-VN') + 'đ' + (expectedRegular ? ', giá gốc ' + expectedRegular.toLocaleString('vi-VN') + 'đ' : '') + ').';
+    if (expected == null)         status = 'ℹ️ Không rõ gói — kiểm tra nội dung CK trước khi giao.';
+    else if (amount === expected) status = '✅ *Số tiền KHỚP gói — có thể giao ngay!*';
+    else if (amount < expected)   status = '⚠️ *THIẾU ' + (expected - amount).toLocaleString('vi-VN') + 'đ* (cần ' + expected.toLocaleString('vi-VN') + 'đ) — kiểm tra trước khi giao!';
+    else                          status = '⚠️ *DƯ ' + (amount - expected).toLocaleString('vi-VN') + 'đ* (gói cần ' + expected.toLocaleString('vi-VN') + 'đ).';
 
     const msg =
       '🛒 *ĐƠN HÀNG MỚI — MÔI GIỚI AI*\n\n' +

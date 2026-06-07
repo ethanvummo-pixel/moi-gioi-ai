@@ -88,9 +88,7 @@
       <div class="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 bg-amber-500/10 border border-amber-500/40 text-amber-200 px-5 py-2.5 rounded-xl text-sm">
         <span>⏰ Ưu đãi early-bird: <strong class="js-cd font-mono text-white">02:00:00</strong></span>
         <span class="text-amber-300/50">·</span>
-        <span>hết giờ giá <strong class="text-white">×2</strong></span>
-        <span class="text-amber-300/50">·</span>
-        <span>chỉ còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất</span>
+        <span>chỉ còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất ưu đãi</span>
       </div>
       <p class="text-slate-400 text-sm mt-3">👉 Nhận tức thì sau thanh toán · Không ra nổi 1 tin ưng ý trong 7 ngày → hoàn 100%</p>
       <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-400 mt-5">
@@ -326,7 +324,7 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
       <p class="text-center text-slate-500 mb-8">Bắt đầu từ đâu cũng được — nâng cấp bất cứ lúc nào, chỉ bù phần chênh lệch.</p>
       <div class="max-w-2xl mx-auto mb-10 bg-amber-50 border border-amber-200 rounded-2xl p-5 text-center">
         <p id="eb-banner-title" class="text-amber-800 font-semibold text-lg">⏰ Giá ưu đãi early-bird còn lại: <span class="js-cd font-mono text-amber-900">02:00:00</span></p>
-        <p class="text-sm text-amber-700 mt-1">Hết giờ, giá quay về mức gốc (×2). Chỉ còn <strong><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất giá ưu đãi.</p>
+        <p class="text-sm text-amber-700 mt-1">Chỉ còn <strong><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất ở mức giá ưu đãi này — nhanh tay nhé.</p>
         <div class="mt-3 h-2.5 w-full bg-amber-100 rounded-full overflow-hidden">
           <div class="js-slots-bar h-full bg-amber-500 rounded-full transition-all" style="width:10%"></div>
         </div>
@@ -794,7 +792,7 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
     <div>
       <p class="text-[11px] text-amber-300 font-semibold uppercase tracking-wide">⏰ Ưu đãi kết thúc sau</p>
       <p class="text-2xl font-extrabold font-mono js-cd leading-none my-0.5">02:00:00</p>
-      <p class="text-[11px] text-slate-300">Còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất · hết giờ giá <strong class="text-white">×2</strong></p>
+      <p class="text-[11px] text-slate-300">Còn <strong class="text-white"><span class="js-slots-left">9</span>/<span class="js-slots-total">10</span></strong> suất ưu đãi · nhanh tay nhé</p>
     </div>
     <a href="#pricing" class="bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold px-3 py-2.5 rounded-lg whitespace-nowrap transition">Nhận ngay</a>
     <button onclick="document.getElementById('float-cd').remove()" class="absolute -top-2 -right-2 bg-slate-700 hover:bg-slate-600 text-slate-200 w-5 h-5 rounded-full text-xs flex items-center justify-center" aria-label="Đóng">✕</button>
@@ -814,48 +812,22 @@ Lưu lại trước khi căn này có chủ nhé 👇 #canho #nhadat"</p>
 
   <!-- ============ EARLY-BIRD: ĐỒNG HỒ ĐẾM NGƯỢC + SUẤT GIỚI HẠN ============ -->
   <script>
-    // ⚙️ CHỈNH Ở ĐÂY: số suất, số giờ ưu đãi/khách, và hệ số giá khi hết giờ.
-    const EARLYBIRD = { slotsLeft: 9, slotsTotal: 10, hours: 1, expireMultiplier: 2 };
+    // ⚙️ CHỈNH Ở ĐÂY: số suất còn lại / tổng suất + số giờ đồng hồ ưu đãi cho mỗi khách.
+    // Lưu ý: GIÁ LUÔN GIỮ NGUYÊN — đồng hồ chỉ tạo cảm giác khẩn trương (marketing).
+    const EARLYBIRD = { slotsLeft: 9, slotsTotal: 10, hours: 1 };
     (function(){
-      // Đếm ngược RIÊNG cho từng khách: bấm vào trang là bắt đầu 1 giờ.
-      // Lưu localStorage → F5 không reset; hết 1 giờ thì giá tự ×2 (cả hiển thị lẫn thanh toán).
-      const KEY = 'mgai_eb_deadline_v2';   // v2: ai cũng bắt đầu đếm tươi từ lần ghé này
+      // Đếm ngược cho từng khách. Lưu localStorage (F5 không reset); hết giờ thì làm mới
+      // vòng đếm để đồng hồ luôn "sống" (không đứng 00:00:00). Giá KHÔNG thay đổi.
+      const KEY = 'mgai_eb_deadline_v3';
       let deadline = parseInt(localStorage.getItem(KEY) || '0', 10);
-      if (!deadline) { deadline = Date.now() + EARLYBIRD.hours * 3600 * 1000; localStorage.setItem(KEY, String(deadline)); }
+      if (!deadline || deadline < Date.now()) { deadline = Date.now() + EARLYBIRD.hours * 3600 * 1000; localStorage.setItem(KEY, String(deadline)); }
 
-      const cds   = document.querySelectorAll('.js-cd');
-      const banner = document.getElementById('eb-banner-title');
+      const cds = document.querySelectorAll('.js-cd');
       const pad = function(n){ return String(n).padStart(2, '0'); };
-      const fmtFull  = function(v){ return v.toLocaleString('vi-VN') + 'đ'; };
-      const fmtShort = function(v){ return (v / 1000).toLocaleString('vi-VN') + 'K'; };
-
-      // Đổi toàn bộ giá (hiển thị + giá thanh toán) theo trạng thái còn/hết hạn
-      function applyPrices(expired){
-        const m = expired ? EARLYBIRD.expireMultiplier : 1;
-        document.querySelectorAll('[data-eb]').forEach(function(el){
-          const base = parseInt(el.getAttribute('data-eb'), 10);
-          el.textContent = (el.getAttribute('data-fmt') === 'short') ? fmtShort(base * m) : fmtFull(base * m);
-        });
-        if (typeof PLANS !== 'undefined') {
-          PLANS.starter.amount = 199000 * m;
-          PLANS.growth.amount  = 399000 * m;
-          PLANS.pro.amount     = 1190000 * m;
-          if (typeof updateOrderSummary === 'function') updateOrderSummary();
-        }
-      }
-
-      let wasExpired = null;
       function tick(){
-        let ms = deadline - Date.now();
-        const expired = ms <= 0;
-        if (ms < 0) ms = 0;
+        let ms = deadline - Date.now(); if (ms < 0) ms = 0;
         const t = pad(Math.floor(ms/3600000)) + ':' + pad(Math.floor(ms%3600000/60000)) + ':' + pad(Math.floor(ms%60000/1000));
         cds.forEach(e => e.textContent = t);
-        if (expired !== wasExpired) {
-          applyPrices(expired);
-          if (expired && banner) banner.textContent = '⏰ Ưu đãi early-bird đã kết thúc — giá đã về mức gốc';
-          wasExpired = expired;
-        }
       }
       tick(); setInterval(tick, 1000);
 
