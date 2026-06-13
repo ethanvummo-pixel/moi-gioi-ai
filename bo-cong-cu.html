@@ -84,22 +84,22 @@
       <h2 class="text-xl font-extrabold mb-1">Mở khoá <span class="gt">Hệ thống Ra Khách</span></h2>
       <p class="text-slate-600 text-sm mb-4 max-w-md mx-auto">Bạn đã có Máy Viết Content. Nâng lên để khách <strong>tự inbox hỏi mua</strong>: Module thương hiệu cá nhân · Lịch content 30 ngày · Kho Hook + bài trụ cột · Kịch bản video ngắn · Phễu chốt Comment→Inbox→Hẹn xem nhà · 99 kịch bản xử lý từ chối.</p>
       <div class="bg-white border border-emerald-200 rounded-xl p-4 mb-4 inline-block">
-        <p class="text-sm text-slate-500">Mua lẻ Gói 2 là <span class="line-through">399.000đ</span>. Bạn chỉ cần bù thêm:</p>
-        <p class="text-3xl font-extrabold text-emerald-600 my-1">+149.000đ</p>
-        <p class="text-xs text-emerald-700 font-semibold">Tiết kiệm 51.000đ — chỉ dành cho khách đã mua hôm nay</p>
+        <p class="text-sm text-slate-500">Mua lẻ Gói 2 là <span class="line-through">199.000đ</span>. Bạn chỉ cần bù thêm:</p>
+        <p class="text-3xl font-extrabold text-emerald-600 my-1">+89.000đ</p>
+        <p class="text-xs text-emerald-700 font-semibold">Ưu đãi riêng — chỉ dành cho khách đã mua hôm nay</p>
       </div>
       <div>
-        <button onclick="showUpgradeQR()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/30 transition">Nâng cấp ngay +149K →</button>
+        <button onclick="showUpgradeQR()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-emerald-500/30 transition">Nâng cấp ngay +89K →</button>
       </div>
-      <!-- QR nâng cấp +149K (nội dung CK: SEVQR MGAIUP2) -->
+      <!-- QR nâng cấp +89K (nội dung CK: SEVQR MGAIUP2) -->
       <div id="upgrade-qr" class="hidden mt-5 max-w-sm mx-auto text-left bg-white border border-slate-200 rounded-xl p-4">
         <p class="text-center text-sm font-semibold mb-3">Quét mã hoặc chuyển khoản đúng nội dung 👇</p>
-        <div class="bg-white rounded-lg w-fit mx-auto"><img src="https://qr.sepay.vn/img?acc=103878529931&bank=VietinBank&amount=149000&des=SEVQR%20MGAIUP2&template=compact" alt="QR nâng cấp 149K" class="w-48 h-48"></div>
+        <div class="bg-white rounded-lg w-fit mx-auto"><img src="https://qr.sepay.vn/img?acc=103878529931&bank=VietinBank&amount=89000&des=SEVQR%20MGAIUP2&template=compact" alt="QR nâng cấp 89K" class="w-48 h-48"></div>
         <div class="text-sm space-y-1 mt-3">
           <div class="flex justify-between"><span class="text-slate-500">Ngân hàng</span><strong>VietinBank</strong></div>
           <div class="flex justify-between"><span class="text-slate-500">Chủ TK</span><strong>PHAM TRUONG GIANG</strong></div>
           <div class="flex justify-between"><span class="text-slate-500">Số TK</span><strong>103878529931</strong></div>
-          <div class="flex justify-between"><span class="text-slate-500">Số tiền</span><strong class="text-emerald-600">149.000đ</strong></div>
+          <div class="flex justify-between"><span class="text-slate-500">Số tiền</span><strong class="text-emerald-600">89.000đ</strong></div>
           <div class="flex justify-between"><span class="text-slate-500">Nội dung CK</span><strong class="font-mono">SEVQR MGAIUP2</strong></div>
         </div>
         <p class="text-xs text-slate-500 mt-3 text-center">Sau khi chuyển, nhắn Zalo <strong>0889578256</strong> (kèm ảnh CK) để mở khoá Gói 2 trong vài phút.</p>
@@ -144,7 +144,7 @@
     if (rank === 1) document.getElementById('upsell-growth').classList.remove('hidden');
     if (rank === 2) document.getElementById('upsell-pro').classList.remove('hidden');
 
-    // Hiện QR nâng cấp +149K (Gói 1 → Gói 2)
+    // Hiện QR nâng cấp +89K (Gói 1 → Gói 2)
     function showUpgradeQR(){
       const el = document.getElementById('upgrade-qr');
       if (el) el.classList.remove('hidden');

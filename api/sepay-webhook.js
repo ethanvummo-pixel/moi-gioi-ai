@@ -7,8 +7,8 @@
 //   TELEGRAM_CHAT_ID    : chat id của anh (hoặc group) để nhận thông báo
 //   SEPAY_API_KEY       : (tùy chọn) API key trùng với cấu hình webhook trên SePay để xác thực
 
-const PLAN_NAMES  = { MGAI199: 'Máy Viết Content BĐS', MGAI399: 'Hệ thống Ra Khách', MGAI1190: 'Phiên bản AI của bạn' };
-const PLAN_PRICES = { MGAI199: 199000, MGAI399: 399000, MGAI1190: 1190000 };
+const PLAN_NAMES  = { MGAI99: 'Máy Viết Content BĐS', MGAI199: 'Hệ thống Ra Khách', MGAI1190: 'Phiên bản AI của bạn' };
+const PLAN_PRICES = { MGAI99: 99000, MGAI199: 199000, MGAI1190: 1190000 };
 const SETUP_PRICE = 1000000; // Add-on "Setup AI Clone cho bạn" — mã có hậu tố S
 
 module.exports = async (req, res) => {
@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
     const when    = data.transactionDate || new Date().toLocaleString('vi-VN');
 
     // Nâng cấp giữa các gói (vd: MGAIUP2 = Gói 1 → Gói 2, +149k)
-    const UPGRADES = { MGAIUP2: { name: 'NÂNG CẤP → Hệ thống Ra Khách', price: 149000 } };
+    const UPGRADES = { MGAIUP2: { name: 'NÂNG CẤP → Hệ thống Ra Khách', price: 89000 } };
     const upKey = (content.toUpperCase().match(/MGAIUP[23]/) || [])[0];
     // OTO trang cảm ơn lead magnet: Gói 1 giá đặc biệt 149k (vd: MGAIOTO9719)
     const otoM = content.toUpperCase().match(/MGAIOTO(\d{4})?/);
@@ -55,14 +55,14 @@ module.exports = async (req, res) => {
       expected  = UPGRADES[upKey].price;
     } else if (otoM) {
       planKey   = 'MGAIOTO';
-      planName  = 'Máy Viết Content BĐS (OTO 149K)';
+      planName  = 'Máy Viết Content BĐS (OTO 89K)';
       hasSetup  = false;
       phoneTail = otoM[1] || '----';
-      expected  = 149000;
+      expected  = 89000;
     } else {
-      // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI399 9719, MGAI1190S9719)
-      // Đặt 1190 trước 199 để khớp đúng gói dài hơn.
-      const m = content.toUpperCase().match(/MGAI(1190|399|199)(S)?(\d{4})?/);
+      // Tách gói + (add-on S) + 4 số cuối SĐT từ nội dung CK (vd: MGAI199 9719, MGAI1190S9719)
+      // Đặt mã dài trước (1190 → 199 → 99) để khớp đúng gói.
+      const m = content.toUpperCase().match(/MGAI(1190|199|99)(S)?(\d{4})?/);
       planKey   = m ? 'MGAI' + m[1] : null;
       planName  = planKey ? PLAN_NAMES[planKey] : '(không rõ gói)';
       hasSetup  = !!(m && m[2]);
